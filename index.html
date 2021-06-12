@@ -1,7 +1,10 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
+---
+# this is the front matter, which tells Jekyll to process Liquid
+layout: default
+title: Home
+date: 6/12/2021
+---
+<!-- This is the 'content' put in the layout file 'default' -->
+<h1>{{"Hello World" | downcase}}</h1>
 <p> GitHub pages </p>
-</body>
-</html>
+<p> {{page.date}} </p>
