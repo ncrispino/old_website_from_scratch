@@ -1,0 +1,17 @@
+---
+<!-- layout: default -->
+title: Creators
+---
+<h1>{{ page.title }}</h1>
+
+<ul>
+  {% for creator in site.creators %}
+    <li>
+      <h2><a href="{{ creator.url }}">{{ creator.name }}</a></h2>
+      <h3>{{ creator.position }}</h3>
+      <p>
+        {{ creator.content | markdownify }}
+      </p>
+    </li>
+  {% endfor %}
+</ul>

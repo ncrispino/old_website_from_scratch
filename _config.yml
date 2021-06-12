@@ -1,0 +1,24 @@
+plugins:
+  # to see sitemap, use /sitemap.xml
+  - jekyll-sitemap
+
+collections:
+  creators:
+    output: true
+
+# Now don't need to include layout: ____ in every file
+defaults:
+  - scope:
+      path: ""
+      type: "creators"
+    values:
+      layout: "creator"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
