@@ -4,6 +4,14 @@ title: Home
 date: 6/12/2021
 ---
 <!-- This is the 'content' put in the layout file 'default' -->
-<h1>{{"Hello World" | downcase}}</h1>
-<p> GitHub pages </p>
-<p> {{page.date}} </p>
+<h1>{{ page.title }}</h1>
+<p class="date"> {{page.date}} </p>
+<p>
+  New Paragraph (should be colored according to CSS included in default layout)
+</p>
+<ul>
+  <li>This is an unordered list</li>
+  <li>This is cool</li>
+  <li><a href="https://marginalrevolution.com/">marginal revolution blog</a></li>
+</ul>
+<img src="/images/may2021_ratings.png" alt="Cable news ratings" />
