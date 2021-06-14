@@ -2,18 +2,50 @@
 <!-- layout: default -->
 title: Home
 date: 6/12/2021
+description: Home page for ncrispino.
 ---
 <!-- This is the 'content' put in the layout file 'default' -->
-<h1>{{ page.title }}</h1>
-<p class="date"> {{page.date}} </p>
-<p>
-  New Paragraph (should be colored according to CSS included in default layout)
-</p>
-<ul>
-  <li>This is an unordered list</li>
-  <li>This is cool</li>
-  <li><a href="https://marginalrevolution.com/">marginal revolution blog</a></li>
-</ul>
-<img src="/images/may2021_ratings.png" alt="Cable news ratings" />
-<button>Change user</button>
+<main>
+  <h1 id="top">{{ page.title }}</h1>
+  <p class="date"> {{page.date}} </p>
+  <article>
+    <h2>New Article</h2>
+    <p>
+      New Paragraph (should be colored according to CSS included in default layout);
+      <span class="note">[Note: use span (inline) or div (block) when you can't
+        find the right semantic group"]</span>
+    </p>
+    <div class="div-practice">
+      <code>&lt;div&gt;</code> should not be over-used; only use when you can't
+      find the right divider.
+    </div>
+  </article>
+  <article>
+      <h2>Andrew D. Martin:</h2>
+      <blockquote>
+        <p>
+          "Will be taking my traditional summer Twitter break, starting today.
+          Wishing you all a safe, healthy season. See you in August!"
+        <cite><a href="https://twitter.com/WashUChancellor/status/1400109953323606028?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3AWashUChancellor%7Ctwgr%5EeyJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2hvcml6b25fdHdlZXRfZW1iZWRfOTU1NSI6eyJidWNrZXQiOiJodGUiLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3R3ZWV0X2VtYmVkX2NsaWNrYWJpbGl0eV8xMjEwMiI6eyJidWNrZXQiOiJjb250cm9sIiwidmVyc2lvbiI6bnVsbH19%7Ctwcon%5Etimelinechrome&ref_url=https%3A%2F%2Fandrewdmartin.wustl.edu%2Fmeet-andrew-martin%2Fbiography%2F" target="_blank">Source.</a></cite>
+        </p>
+      </blockquote>
+  </article>
+
+  <a href="#change_user">Change user button</a>
+  <ul>
+    <li>What's the best measure of inflation?</li>
+    <li>Should the Fed create its own digital currency?</li>
+    <li><a href="https://marginalrevolution.com/">marginal revolution blog</a></li>
+  </ul>
+
+  <img src="/images/may2021_ratings.png" alt="Cable news ratings" id="image"/>
+  <a href="#top">Top of page</a>
+  <button id="change_user">Change user</button>
+
+  <aside>
+    pssst. click other links to check out more cool stuff on my website!
+  </aside>
+
+</main>
+
 <script src="scripts/main.js"></script>

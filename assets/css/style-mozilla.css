@@ -15,9 +15,9 @@ body {
   border: 5px solid black;
 }
 
-div {
+/* div {
   background-color: gray;
-}
+} */
 
 h1 {
   font-size: 60px;
@@ -53,3 +53,28 @@ a:hover {
 .date {
   color: blue;
 }
+
+button {
+  float: right;
+}
+
+blockquote p {
+  color: blue;
+}
+
+nav li {
+  display: inline;
+}
+/* nav ul {
+  list-style-type: none;
+}
+
+nav li {
+  float: left;
+  border-right: 1px solid black;
+  background-color: gray;
+}
+
+nav li a {
+  padding: 10px 10px;
+} */
