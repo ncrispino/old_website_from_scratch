@@ -4,7 +4,7 @@
   <!-- Iterates over navigation items in navigation data file;
   each has a name and corresponding link -->
   <ul>
-    <div class="nav-static-elements">
+    <span class="nav-static-elements">
       <li>
         <img id="site-logo" src={{ "../images/poss_logo_1.png" | relative_url }}>
         <span id="site-name">ncrispino</span>
@@ -12,8 +12,8 @@
       <li>
         <input id="search-bar" type="search" placeholder="Search">
       </li>
-    </div>
-    <div class="nav-elements">
+    </span>
+    <span class="nav-elements">
       {% for item in site.data.navigation %}
       <li>
         <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
@@ -21,6 +21,6 @@
         </a>
       </li>
       {% endfor %}
-    </div>
+    </span>
   </ul>
 </nav>
