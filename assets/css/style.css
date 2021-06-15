@@ -1,0 +1,35 @@
+html {
+  background-color: #bfbfbf;
+}
+
+body {
+  width: 80%;
+  margin: 0 auto; /* Put text in middle of page */
+  padding: 10px;
+  background-color: #d9fffd; /* Select off-white color */
+}
+
+h1 {
+  text-align: center;
+}
+
+.nav-bar ul {
+  list-style-type: none;
+  border: 5px solid black;
+  background-color: gray;
+  padding: 0px auto;
+  text-align: center;
+}
+
+.nav-bar ul li {
+  display: inline;
+  margin: auto 5%;
+}
+
+li a {
+  text-decoration: none;
+}
+
+li a:hover {
+  color: orange;
+}
