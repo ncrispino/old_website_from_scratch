@@ -1,14 +1,26 @@
 
 <nav class="nav-bar">
+  <!-- <span id="site-name">ncrispino</span> -->
   <!-- Iterates over navigation items in navigation data file;
   each has a name and corresponding link -->
   <ul>
-    {% for item in site.data.navigation %}
-    <li>
-      <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
-        {{ item.name }}
-      </a>
-    </li>
-    {% endfor %}
+    <div class="nav-static-elements">
+      <li>
+        <img id="site-logo" src={{ "../images/poss_logo_1.png" | relative_url }}>
+        <span id="site-name">ncrispino</span>
+      </li>
+      <li>
+        <input id="search-bar" type="search" placeholder="Search">
+      </li>
+    </div>
+    <div class="nav-elements">
+      {% for item in site.data.navigation %}
+      <li>
+        <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
+          {{ item.name }}
+        </a>
+      </li>
+      {% endfor %}
+    </div>
   </ul>
 </nav>

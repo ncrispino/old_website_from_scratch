@@ -279,6 +279,36 @@
         </meshpatch>
       </meshrow>
     </meshgradient>
+    <meshgradient
+       inkscape:collect="always"
+       id="meshgradient997"
+       gradientUnits="userSpaceOnUse"
+       x="114.29951"
+       y="38.796524"
+       gradientTransform="translate(-1.4174107,2.1733631)">
+      <meshrow
+         id="meshrow999">
+        <meshpatch
+           id="meshpatch1001">
+          <stop
+             path="c 3.22197,0  6.44394,0  9.6659,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1003" />
+          <stop
+             path="c 0,2.79213  0,5.58427  0,8.3764"
+             style="stop-color:#008b8b;stop-opacity:1"
+             id="stop1005" />
+          <stop
+             path="c -3.22197,0  -6.44394,0  -9.6659,0"
+             style="stop-color:#ffffff;stop-opacity:1"
+             id="stop1007" />
+          <stop
+             path="c 0,-2.79213  0,-5.58427  0,-8.3764"
+             style="stop-color:#008b8b;stop-opacity:1"
+             id="stop1009" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -288,8 +318,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6"
-     inkscape:cx="359.04896"
-     inkscape:cy="187.31685"
+     inkscape:cx="468.87039"
+     inkscape:cy="194.45971"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -361,6 +391,40 @@
        xml:space="preserve"
        id="text973"
        style="line-height:1.25;font-family:sans-serif;font-size:4.93888889px;-inkscape-font-specification:'sans-serif Italic';font-style:italic;white-space:pre;shape-inside:url(#rect975);" />
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-size:4.9389px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';stroke-width:0.264583"
+       x="111.73921"
+       y="36.710938"
+       id="text987"><tspan
+         sodipodi:role="line"
+         id="tspan985"
+         x="111.73921"
+         y="36.710938"
+         style="stroke-width:0.264583" /></text>
+    <path
+       style="fill:url(#meshgradient997);fill-opacity:1;stroke:#000000;stroke-width:0.178125px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 122.07115,42.908982 c -3.43714,-3.857984 -3.71201,-1.018742 -6.32977,0.477119 -2.01815,1.153235 -3.50489,-1.023898 -2.57644,2.767289 0.32325,1.319924 1.12395,2.456186 2.38559,3.021751 1.3229,0.593026 3.94328,-0.422117 5.5751,-2.011742 1.26599,-1.233258 1.93699,-2.812294 0.94552,-4.254417"
+       id="path993"
+       sodipodi:nodetypes="cssssc"
+       inkscape:export-xdpi="252.936"
+       inkscape:export-ydpi="252.936" />
+    <text
+       xml:space="preserve"
+       style="font-style:italic;font-size:4.9389px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';stroke-width:0.264583"
+       x="102.82226"
+       y="68.397438"
+       id="text979"
+       transform="rotate(-11.071745)"
+       inkscape:export-xdpi="252.936"
+       inkscape:export-ydpi="252.936"><tspan
+         sodipodi:role="line"
+         id="tspan977"
+         x="102.82226"
+         y="68.397438"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Rage Italic';-inkscape-font-specification:'Rage Italic, ';stroke-width:0.264583">N<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:65%;font-family:'Rage Italic';-inkscape-font-specification:'Rage Italic, ';baseline-shift:sub"
+   id="tspan983">r</tspan>C</tspan></text>
   </g>
   <script
      id="mesh_polyfill"
