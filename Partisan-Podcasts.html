@@ -4551,7 +4551,7 @@ form{
   .bp3-running-text table th, table.bp3-html-table th{
     color:#182026;
     font-weight:600; }
-  
+
   .bp3-running-text table td,
   table.bp3-html-table td{
     color:#182026; }
@@ -14238,17 +14238,17 @@ a.anchor-link {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 },
                 "HTML-CSS": {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14265,7 +14265,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[93]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
@@ -14309,10 +14309,16 @@ a.anchor-link {
 </div>
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Find-Data">Find Data<a class="anchor-link" href="#Find-Data">&#182;</a></h3><p>Find <a href="https://chartable.com/charts/spotify/united-states-of-america-news-politics">Chartable's Top 50 News Podcasts on Spotify</a> for the current day and place in a dataframe.</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Extract top 50 news podcasts, according to the spotify charts</span>
@@ -14349,8 +14355,8 @@ a.anchor-link {
 
 <div class="jp-OutputArea-child">
 
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 
 
 
@@ -14400,8 +14406,8 @@ a.anchor-link {
     </tr>
     <tr>
       <th>4</th>
-      <td>The Wall Street Journal &amp; Gimlet</td>
-      <td>The Journal.</td>
+      <td>NPR</td>
+      <td>On Our Watch</td>
     </tr>
   </tbody>
 </table>
@@ -14417,179 +14423,14 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Using <a href="https://www.allsides.com/media-bias/media-bias-ratings">AllSides</a> ratings, I'll rate each podcast's partisan lean using their Source.</p>
-<p>However, first, we must drop non-political podcasts, which will be done through examining their descriptions on Spotify.</p>
+<h3 id="Find-Partisan-Leans">Find Partisan Leans<a class="anchor-link" href="#Find-Partisan-Leans">&#182;</a></h3><p>Because not all podcasts in the news category are politically-focused, I want to drop non-political podcasts, which I originally thought could be done through examining their descriptions on Spotify. My thought was that I could parse through these descriptions, but realized that it's very difficult; there's a large variance in description content, with some shorter and less informative and others long paragraphs. Perhaps using some sort of natural language classification could help? But if I wanted to do that, it would require much more data to train the algorithms on (would need to use episode descriptions), and isn't necessarily going to be accurate. No matter what, I will need to look at the data myself, due to my desire to classify all data sources correctly. Because a large number of the podcasts stay in the top charts, this isn't too tedious. Besides, someone needs to create a centralized list of partisan podcast leans, so why not I?</p>
+<p>I will use the internet to find political leans. Using <a href="https://www.allsides.com/media-bias/media-bias-ratings">AllSides</a> ratings, I'll rate each podcast's partisan lean using their source or name.  I will then supplement these ratings with my own categorizations.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[232]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">spotipy</span>
-<span class="kn">from</span> <span class="nn">spotipy.oauth2</span> <span class="kn">import</span> <span class="n">SpotifyClientCredentials</span>
-<span class="kn">from</span> <span class="nn">spotipy.oauth2</span> <span class="kn">import</span> <span class="n">SpotifyOAuth</span>
-
-
-<span class="n">CLIENT_ID</span> <span class="o">=</span> <span class="s2">&quot;4c22163291ec4df384010ce89c03cb2b&quot;</span>
-<span class="n">CLIENT_SECRET</span> <span class="o">=</span> <span class="s2">&quot;995696dea788485e8f4bcad5f3167544&quot;</span>
-<span class="n">REDIRECT_URI</span> <span class="o">=</span> <span class="s1">&#39;http://myspotifystuff/&#39;</span>
-
-<span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;user-library-read&quot;</span>
-<span class="n">sp</span> <span class="o">=</span> <span class="n">spotipy</span><span class="o">.</span><span class="n">Spotify</span><span class="p">(</span><span class="n">auth_manager</span><span class="o">=</span><span class="n">SpotifyOAuth</span><span class="p">(</span><span class="n">CLIENT_ID</span><span class="p">,</span> <span class="n">CLIENT_SECRET</span><span class="p">,</span> <span class="n">REDIRECT_URI</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="n">scope</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">get_descriptions</span><span class="p">(</span><span class="n">show_names</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Given names of shows, returns a list containing the descriptions for each.</span>
-<span class="sd">    Appends empty description when show is not found.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">descriptions</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">show_name</span> <span class="ow">in</span> <span class="n">show_names</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="c1"># finds the description of the first item when searching for the podcast name </span>
-            <span class="c1"># (don&#39;t include &quot;show:&quot; before show_name); for some reason, it&#39;s not giving the podcast that matches the name</span>
-            <span class="n">description</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">show_name</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;show&quot;</span><span class="p">)[</span><span class="s2">&quot;shows&quot;</span><span class="p">][</span><span class="s2">&quot;items&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;description&quot;</span><span class="p">]</span>
-            <span class="n">descriptions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="n">descriptions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">descriptions</span>
-
-<span class="k">def</span> <span class="nf">get_episode_descriptions</span><span class="p">(</span><span class="n">show_names</span><span class="p">,</span> <span class="n">num_episodes</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Given names of shows, returns a dictionary giving number of episodes per show</span>
-<span class="sd">    and a list containing the n episode descriptions for each.</span>
-<span class="sd">    Appends empty description when show is not found or there aren&#39;t enough episodes.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">descriptions</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">num_ep_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">show_name</span> <span class="ow">in</span> <span class="n">show_names</span><span class="p">:</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="c1"># finds the uri of the first item when searching for the podcast name </span>
-            <span class="n">show_uri</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">show_name</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;show&quot;</span><span class="p">,</span> <span class="n">market</span><span class="o">=</span><span class="s2">&quot;US&quot;</span><span class="p">)[</span><span class="s2">&quot;shows&quot;</span><span class="p">][</span><span class="s2">&quot;items&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;uri&quot;</span><span class="p">]</span>  
-            <span class="n">episode_descriptions</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="c1"># if not enough episodes exist, stop there and add that many episodes to num_ep_dict</span>
-            <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="c1"># finds description for first num_episodes episodes of the podcast and adds to list</span>
-                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_episodes</span><span class="p">):</span>
-                    <span class="n">episode_descriptions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">show_episodes</span><span class="p">(</span><span class="n">show_uri</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">num_episodes</span><span class="p">)[</span><span class="s2">&quot;items&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s2">&quot;description&quot;</span><span class="p">])</span>
-            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-                <span class="n">i</span> <span class="o">-=</span> <span class="mi">1</span>
-            <span class="n">num_ep_dict</span><span class="p">[</span><span class="n">show_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="c1">#             descriptions.append(episode_descriptions)</span>
-            <span class="n">descriptions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">episode_descriptions</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-            <span class="n">descriptions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">num_ep_dict</span><span class="p">,</span> <span class="n">descriptions</span>
-
-<span class="c1"># pod_descriptions = get_descriptions(list(pod_df[&quot;Name&quot;].values))</span>
-<span class="c1"># for d in pod_descriptions:</span>
-<span class="c1">#     print(d)</span>
-<span class="c1">#     print(&quot;\n&quot;)</span>
-
-
-<span class="n">pod_df</span>
-<span class="n">num_ep_dict</span><span class="p">,</span> <span class="n">episode_descriptions</span> <span class="o">=</span> <span class="n">get_episode_descriptions</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pod_df</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
-<span class="n">num_ep_dict</span>
-
-<span class="c1"># show_uri = sp.search(q=&quot;Breaking Points with Krystal and Saagar&quot;, type=&quot;show&quot;, market=&quot;US&quot;)[&quot;shows&quot;][&quot;items&quot;][0][&quot;uri&quot;]</span>
-<span class="c1"># num_episodes = 10</span>
-<span class="c1"># for i in range(num_episodes):</span>
-<span class="c1">#     print(sp.show_episodes(show_uri, limit=num_episodes)[&quot;items&quot;][i][&quot;description&quot;])</span>
-<span class="c1">#     print(&quot;\n&quot;)</span>
-<span class="c1"># for v in (pod_df[&quot;Name&quot;].values[:4]):</span>
-<span class="c1">#     print(v)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[232]:</div>
-
-
-
-
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>{&#39;Breaking Points with Krystal and Saagar&#39;: 4,
- &#39;The Daily&#39;: 10,
- &#39;Up First&#39;: 6,
- &#39;The Ben Shapiro Show&#39;: 10,
- &#39;Louder with Crowder&#39;: 10,
- &#39;The Journal.&#39;: 10,
- &#39;NPR News Now&#39;: 1,
- &#39;On Our Watch&#39;: 5,
- &#39;What A Day&#39;: 10,
- &#39;The Dan Bongino Show&#39;: 10,
- &#39;Snacks Daily&#39;: 10,
- &#39;Pod Save America&#39;: 10,
- &#39;The Matt Walsh Show&#39;: 10,
- &#39;Serial&#39;: 10,
- &#39;Today, Explained&#39;: 10,
- &#39;Consider This from NPR&#39;: 10,
- &#39;The Michael Knowles Show&#39;: 10,
- &#39;Candace&#39;: 10,
- &#39;Global News Podcast&#39;: 10,
- &#39;Fear &amp; Malding&#39;: 7,
- &#39;The Argument&#39;: 10,
- &#39;The Economist Morning Briefing&#39;: 3,
- &#39;Krystal Kyle &amp; Friends&#39;: 10,
- &#39;WSJ What’s News&#39;: 10,
- &#39;The NPR Politics Podcast&#39;: 10,
- &#39;Pivot&#39;: 10,
- &#39;Debunked&#39;: 5,
- &#39;Axios Today&#39;: 10,
- &#39;Pop Alarm&#39;: 9,
- &#39;The Rachel Maddow Show&#39;: 10,
- &#39;WSJ Your Money Briefing&#39;: 10,
- &#39;The Liz Wheeler Show&#39;: 10,
- &#39;The Charlie Kirk Show&#39;: 10,
- &#39;Code Switch&#39;: 10,
- &#39;Economist Radio&#39;: 10,
- &#39;The Megyn Kelly Show&#39;: 10,
- &#39;The Andrew Klavan Show&#39;: 10,
- &#39;Pod Save the World&#39;: 10,
- &#39;Fearless with Jason Whitlock&#39;: 2,
- &#39;The Realignment&#39;: 10,
- &#39;Hodgetwins&#39;: 10,
- &#39;Wall Street Breakfast&#39;: 10,
- &#39;Lovett or Leave It&#39;: 10,
- &#39;The Glenn Beck Program&#39;: 10,
- &#39;Tim Pool Daily Show&#39;: 10,
- &#39;Chapo Trap House&#39;: 10,
- &#39;QAnon Anonymous&#39;: 10,
- &#39;Part Of The Problem&#39;: 10,
- &#39;Rough Translation&#39;: 10,
- &#39;What Next | Daily News and Analysis&#39;: 10}</pre>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>My thought was that I could parse through these descriptions, but realized that it's very difficult; there's a large variance in description content, with some shorter and less informative and others long paragraphs. Perhaps using some sort of natural language classification could help classification? If I wanted to do that, it would require much more data to train the algorithms on (maybe using episode descriptions could help), and would be a pain to create.</p>
-<p>Instead, I will use the internet to find political leans. If the company creating the podcast is searchable, then</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[56]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Clean Media</span>
@@ -14613,41 +14454,44 @@ a.anchor-link {
         <span class="n">name_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">name_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">name_list</span>
 
-<span class="k">def</span> <span class="nf">find_biases</span><span class="p">(</span><span class="n">source_list</span><span class="p">):</span>
+
+<span class="k">def</span> <span class="nf">find_biases_dict</span><span class="p">(</span><span class="n">source_list</span><span class="p">,</span> <span class="n">partisan_leans</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Takes a list of strings and finds their corresponding partisan lean according to allsides.com.</span>
-<span class="sd">    If there is no partisan lean, an empty string is put in its place.</span>
-<span class="sd">    Returns a DataFrame with the index as the source names and the values as the partisan leans.</span>
+<span class="sd">    Takes a list of strings and finds their corresponding partisan lean according to allsides.com </span>
+<span class="sd">    and/or the dictionary provided.</span>
+<span class="sd">    If there is no partisan lean, the value is not placed in the dictionary.</span>
+<span class="sd">    Returns given dictionary with the keys as the source names and the values as the partisan leans.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">source_list_use</span> <span class="o">=</span> <span class="n">clean_names</span><span class="p">(</span><span class="n">source_list</span><span class="p">)</span>
-    <span class="n">partisan_leans</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="s2">&quot;C:/Users/ncris/econ/chromedriver_win32/chromedriver.exe&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
     <span class="n">ratings_url</span> <span class="o">=</span> <span class="s2">&quot;https://www.allsides.com/media-bias/media-bias-ratings&quot;</span>
     <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ratings_url</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">source_list_use</span><span class="p">:</span>
-        <span class="c1"># find input and type source</span>
-        <span class="c1"># Waits 5 seconds until element with id &quot;edit-title&quot; is found -- if it&#39;s not or time passes, throws error</span>
-        <span class="n">input_element</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">&quot;edit-title&quot;</span><span class="p">)))</span>
-<span class="c1">#         input_element = driver.find_element_by_id(&quot;edit-title&quot;)</span>
-        <span class="n">input_element</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-        <span class="n">input_element</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span>
-        <span class="n">ratings_soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">page_source</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">ratings_table</span> <span class="o">=</span> <span class="n">ratings_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;views-table cols-4&quot;</span><span class="p">})</span>
-            <span class="n">source_name</span> <span class="o">=</span> <span class="n">ratings_table</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;views-field views-field-title source-title&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
-            <span class="c1"># if name typed and source name not equal</span>
-<span class="c1">#             if source.lower().strip() != source_name.lower().strip():</span>
-<span class="c1">#                 raise ValueError(&quot;Source name not matching&quot;)</span>
-            <span class="n">rating</span> <span class="o">=</span> <span class="n">ratings_table</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;views-field views-field-field-bias-image&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="c1"># append last word of AllSides rating, which is of form AllSides Media Bias Rating: _____ (or lean _____)</span>
-            <span class="n">partisan_leans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rating</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="n">partisan_leans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">source</span><span class="p">,</span> <span class="n">source_full</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">source_list_use</span><span class="p">,</span> <span class="n">source_list</span><span class="p">):</span>
+        <span class="c1"># if source not already in dict</span>
+        <span class="k">if</span> <span class="n">partisan_leans</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">source_full</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># find input and type source</span>
+            <span class="c1"># Waits 10 seconds until element with id &quot;edit-title&quot; is found -- if it&#39;s not or time passes, throws error</span>
+            <span class="n">input_element</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">presence_of_element_located</span><span class="p">((</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">&quot;edit-title&quot;</span><span class="p">)))</span>
+    <span class="c1">#         input_element = driver.find_element_by_id(&quot;edit-title&quot;)</span>
+            <span class="n">input_element</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">input_element</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">Keys</span><span class="o">.</span><span class="n">RETURN</span><span class="p">)</span>
+            <span class="n">ratings_soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">page_source</span><span class="p">,</span> <span class="s2">&quot;lxml&quot;</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ratings_table</span> <span class="o">=</span> <span class="n">ratings_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;views-table cols-4&quot;</span><span class="p">})</span>
+                <span class="n">source_name</span> <span class="o">=</span> <span class="n">ratings_table</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;views-field views-field-title source-title&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">text</span>
+                <span class="n">rating</span> <span class="o">=</span> <span class="n">ratings_table</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;views-field views-field-field-bias-image&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="c1"># add last word of AllSides rating to dict, which is of form AllSides Media Bias Rating: _____ (or lean _____)</span>
+                <span class="c1"># keys of dict are full names of source, not cleaned names</span>
+                <span class="n">partisan_leans</span><span class="p">[</span><span class="n">source_full</span><span class="p">]</span> <span class="o">=</span> <span class="n">rating</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+        <span class="c1"># wait before next round</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
     <span class="n">driver</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;Partisan Lean&quot;</span><span class="p">:</span> <span class="n">partisan_leans</span><span class="p">},</span> <span class="n">index</span><span class="o">=</span><span class="n">source_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">partisan_leans</span>
 
-<span class="n">find_biases</span><span class="p">([</span><span class="s2">&quot;The Daily Wire&quot;</span><span class="p">,</span> <span class="s2">&quot;The New York Times&quot;</span><span class="p">])</span>
-<span class="c1"># find_biases(list(pod_df[&quot;Source&quot;].values))</span>
+<span class="c1"># quick test with empty dict</span>
+<span class="n">find_biases_dict</span><span class="p">([</span><span class="s2">&quot;The Daily Wire&quot;</span><span class="p">,</span> <span class="s2">&quot;The New York Times&quot;</span><span class="p">,</span> <span class="s2">&quot;The New York Times Opinion&quot;</span><span class="p">,</span> <span class="s2">&quot;NPR&quot;</span><span class="p">,</span> <span class="s2">&quot;NPR&quot;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">())</span>
 </pre></div>
 
      </div>
@@ -14662,143 +14506,17 @@ a.anchor-link {
 
 <div class="jp-OutputArea-child">
 
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[49]:</div>
+
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
 
 
 
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Partisan Lean</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>The Daily Wire</th>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <th>The New York Times</th>
-      <td>Left</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[51]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pod_companies</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pod_df</span><span class="p">[</span><span class="s2">&quot;Source&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="n">pod_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pod_df</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-
-<span class="n">bias_df</span> <span class="o">=</span> <span class="n">find_biases</span><span class="p">(</span><span class="n">pod_companies</span><span class="p">)</span>
-<span class="n">bias_df</span> <span class="o">=</span> <span class="n">bias_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;Source&quot;</span><span class="p">})</span>
-<span class="n">pod_bias_df</span> <span class="o">=</span> <span class="n">pod_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bias_df</span><span class="p">[[</span><span class="s2">&quot;Partisan Lean&quot;</span><span class="p">]])</span>
-<span class="n">pod_bias_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Source</th>
-      <th>Name</th>
-      <th>Partisan Lean</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Breaking Points with Krystal and Saagar</td>
-      <td>Breaking Points with Krystal and Saagar</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>The New York Times</td>
-      <td>The Daily</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>NPR</td>
-      <td>Up First</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>The Daily Wire</td>
-      <td>The Ben Shapiro Show</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>The Wall Street Journal &amp; Gimlet</td>
-      <td>The Journal.</td>
-      <td>Center</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>{&#39;The Daily Wire&#39;: &#39;Right&#39;,
+ &#39;The New York Times&#39;: &#39;Left&#39;,
+ &#39;The New York Times Opinion&#39;: &#39;Left&#39;,
+ &#39;NPR&#39;: &#39;Center&#39;}</pre>
 </div>
 
 </div>
@@ -14812,7 +14530,7 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><!-- Since not all sources can be found using AllSides, I will look through episode descriptions for certain politically-affiliated words.
 *Note: If someone mentions how they will 'destroy leftists' in their description, then this will generate false positives for left categorization* -->
-Since not all sources can be found using AllSides, I will look through the sources/shows and label the remaining ones myself. This is the only way to guarantee all labels are correct. Perhaps I could classify shows based on their descriptions/show descriptions, but politically-affiliated words like 'leftist' could be used by any kind of show, not just left-leaning shows. There are no other websites that I can find that maintain a list of podcast biases. I give a description for my labeling after each show. Here are the relevant links, in order:</p>
+Since not all sources can be found using AllSides, I will look through the sources/shows and label the remaining ones myself. This is the only way to guarantee all labels are correct. Perhaps I could classify shows based on their descriptions/show descriptions, but politically-affiliated words like 'leftist' could be used by any kind of show, not just left-leaning shows. There are no other websites that I can find that maintain a list of podcast biases. I give a description for my labeling after each show. Here are the relevant links, in order (this is preliminary; it will hopefully be re-tooled and nicely presented to the user on my website):</p>
 <p>Right</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Dan_Bongino">https://en.wikipedia.org/wiki/Dan_Bongino</a></li>
@@ -14824,6 +14542,7 @@ Since not all sources can be found using AllSides, I will look through the sourc
 <li><a href="https://en.wikipedia.org/wiki/Crooked_Media">https://en.wikipedia.org/wiki/Crooked_Media</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Chapo_Trap_House">https://en.wikipedia.org/wiki/Chapo_Trap_House</a></li>
 <li><a href="https://open.spotify.com/show/5uKAwUEZun3X9NyxnwfS7e">https://open.spotify.com/show/5uKAwUEZun3X9NyxnwfS7e</a> (Fear &amp; Malding)</li>
+<li><a href="https://en.wikipedia.org/wiki/Bill_Maher#Politics">https://en.wikipedia.org/wiki/Bill_Maher#Politics</a></li>
 </ul>
 <p>Neither</p>
 <ul>
@@ -14835,7 +14554,7 @@ Since not all sources can be found using AllSides, I will look through the sourc
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[65]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[76]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># lists known companies and/or names and their ratings--either Left, Right, or Center</span>
@@ -14847,45 +14566,137 @@ Since not all sources can be found using AllSides, I will look through the sourc
                                     <span class="c1"># though they (at least Saagar) may be more populist, </span>
                                     <span class="c1"># they still hold views better aligned with conservatives</span>
                 <span class="s2">&quot;Dan Bongino&quot;</span><span class="p">,</span> <span class="c1"># ran for Congress as republican</span>
-                <span class="s2">&quot;Part of the Problem&quot;</span><span class="p">,</span> <span class="c1"># hosted by self-described libertarian</span>
+                <span class="s2">&quot;Mark Levin&quot;</span><span class="p">,</span> <span class="c1"># Fox News contributor and worked in Reagan white house</span>
+                <span class="s2">&quot;Fearless with Jason Whitlock&quot;</span><span class="p">,</span> <span class="c1"># on The Blaze</span>
+                <span class="s2">&quot;Office Hours with Georgia Howe&quot;</span><span class="p">,</span> <span class="c1"># on The Daily Wire</span>
+                <span class="s2">&quot;Part Of The Problem&quot;</span><span class="p">,</span> <span class="c1"># hosted by self-described libertarian</span>
                 <span class="s2">&quot;Soundfront&quot;</span><span class="p">,</span> <span class="c1"># &quot;Soundfront is a subsidiary of Abbson, a top conservative media company&quot;</span>
                 <span class="s2">&quot;Hodgetwins&quot;</span><span class="p">],</span> <span class="c1"># self-proclaimed conservatives</span>
                <span class="s2">&quot;Right&quot;</span><span class="p">]</span>
 <span class="n">left_names</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Crooked Media&quot;</span><span class="p">,</span> <span class="c1"># created by Obama staffers</span>
+               <span class="s2">&quot;Real Time with Bill Maher&quot;</span><span class="p">,</span> <span class="c1"># Bill Maher has a left-lean; against cancel-culture but still a progressive</span>
                <span class="s2">&quot;Chapo Trap House&quot;</span><span class="p">,</span> <span class="c1"># self-described far-left</span>
                <span class="s2">&quot;QAnon Anonymous&quot;</span><span class="p">,</span> <span class="c1"># explores QAnon theory; will inherently have leftist lean</span>
                <span class="s2">&quot;Krystal Kyle &amp; Friends&quot;</span><span class="p">,</span> <span class="c1"># Hosts Krystal Ball and Kyle Kulinski are self-described progressives</span>
                <span class="s2">&quot;Fear &amp; Malding&quot;</span><span class="p">,</span> <span class="c1"># self-described as left-leaning podcast</span>
                <span class="s2">&quot;Q Clearance: The Hunt for QAnon&quot;</span><span class="p">],</span> <span class="c1"># explores QAnon theory; will inherently have leftist lean</span>
               <span class="s2">&quot;Left&quot;</span><span class="p">]</span>
-<span class="n">neither_names</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Breaking Points with Krystal and Saagar&quot;</span><span class="p">,</span> <span class="c1"># Hosts Krystal Ball and Saagar Enjeti both populists </span>
+<span class="n">center_names</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Breaking Points with Krystal and Saagar&quot;</span><span class="p">,</span> <span class="c1"># Hosts Krystal Ball and Saagar Enjeti both populists </span>
                                                               <span class="c1"># but the former leans left and the latter leans right</span>
                                                               <span class="c1"># even though they aren&#39;t the center, placed for  ease of categorization</span>
                   <span class="s2">&quot;Devil May Care Media&quot;</span><span class="p">,</span> <span class="c1"># Megyn Kelly is self-described independent</span>
                   <span class="s2">&quot;Axios &amp; Pushkin Industries&quot;</span><span class="p">],</span> <span class="c1"># most readers moderate, slightly left-leaning but not entirely </span>
                                                     <span class="c1"># so I&#39;ll put it as neither</span>
                  <span class="s2">&quot;Center&quot;</span><span class="p">]</span>
-<span class="n">names_classify</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">right_names</span><span class="p">,</span> <span class="n">left_names</span><span class="p">,</span> <span class="n">neither_names</span><span class="p">])</span>
+<span class="n">names_classify</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">right_names</span><span class="p">,</span> <span class="n">left_names</span><span class="p">,</span> <span class="n">center_names</span><span class="p">])</span>
 <span class="c1"># Iterates through each name &amp; partisan lean pair and adds to dictionary</span>
-<span class="k">for</span> <span class="n">nc</span> <span class="ow">in</span> <span class="n">names_classify</span><span class="p">:</span>    
+<span class="k">for</span> <span class="n">nc</span> <span class="ow">in</span> <span class="n">names_classify</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nc</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
         <span class="n">partisan_database</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">nc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="c1"># change pod_bias_df partisan leans not caught in webscraping to those in partisan_database dictionary</span>
-<span class="n">uncategorized</span> <span class="o">=</span> <span class="n">pod_bias_df</span><span class="p">[</span><span class="n">pod_bias_df</span><span class="p">[</span><span class="s2">&quot;Partisan Lean&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
-<span class="c1"># For show names like &#39;The Dan Bongino Show&#39;</span>
-<span class="n">isolate_name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[Tt]he\s+|\S?[Ss]how\S?&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">uncategorized</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="c1"># Clean names -- spotify charts has title formatting</span>
-    <span class="n">channel_class</span> <span class="o">=</span> <span class="n">partisan_database</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-    <span class="n">name_class</span> <span class="o">=</span> <span class="n">partisan_database</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">isolate_name</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-    <span class="c1"># classify according to partisan_database dict; if unable to, label as &quot;neither&quot;</span>
-    <span class="k">if</span> <span class="n">channel_class</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">pod_bias_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;Partisan Lean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">channel_class</span>
-    <span class="k">elif</span> <span class="n">name_class</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">pod_bias_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;Partisan Lean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name_class</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">pod_bias_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;Partisan Lean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Neither&quot;</span>
+<span class="c1"># add AllSides ratings to partisan_database</span>
+<span class="n">pod_companies</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pod_df</span><span class="p">[</span><span class="s2">&quot;Source&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">pod_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pod_df</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="n">find_biases_dict</span><span class="p">(</span><span class="n">pod_companies</span> <span class="o">+</span> <span class="n">pod_names</span><span class="p">,</span> <span class="n">partisan_database</span><span class="p">)</span>
+<span class="c1"># show sample 5 elements from partisan_database dict:</span>
+<span class="nb">dict</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">partisan_database</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[76]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>{&#39;The Realignment&#39;: &#39;Right&#39;,
+ &#39;Dan Bongino&#39;: &#39;Right&#39;,
+ &#39;Mark Levin&#39;: &#39;Right&#39;,
+ &#39;Fearless with Jason Whitlock&#39;: &#39;Right&#39;,
+ &#39;Office Hours with Georgia Howe&#39;: &#39;Right&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Now, I'll save this dictionary so I don't have to do webscraping everytime. When it's a new day, I will reload the dictionary and pass it as an argument to the find_biases_dict method, which will update it accordingly. There may be some podcasts</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[55]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># To save</span>
+<span class="c1"># with open(&#39;partisan_database.pkl&#39;, &#39;wb&#39;) as f:</span>
+<span class="c1">#     pickle.dump(partisan_database, f)</span>
+
+<span class="c1"># To reload</span>
+<span class="c1"># with open(&#39;partisan_database.pkl&#39;, &#39;rb&#39;) as f:</span>
+<span class="c1">#     partisan_database = pickle.load(f)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Classify-Podcasts">Classify Podcasts<a class="anchor-link" href="#Classify-Podcasts">&#182;</a></h3><p>Create dataframe with partisan leans assigned to each podcast.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[58]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">categorize_leans</span><span class="p">(</span><span class="n">pod_bias_df</span><span class="p">,</span> <span class="n">partisan_database</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Categorize each row of pod_bias_df based on partisan leans stored in partisan_database dict.</span>
+<span class="sd">    If unable to label, classify as &quot;Neither&quot;.</span>
+<span class="sd">    Will add new column named &quot;Partisan Leans&quot; to store the data.</span>
+<span class="sd">    Returns modified df.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># For show names like &#39;The Dan Bongino Show&#39;</span>
+    <span class="n">isolate_name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[Tt]he\s+|\S?[Ss]how\S?|\S?[Pp]odcast\S?&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">pod_bias_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="c1"># Clean names -- spotify charts has title formatting</span>
+        <span class="n">channel_class</span> <span class="o">=</span> <span class="n">partisan_database</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+        <span class="n">name_class</span> <span class="o">=</span> <span class="n">partisan_database</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">isolate_name</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+        <span class="c1"># labels by podcast name first, if possible, then by channel name</span>
+        <span class="k">if</span> <span class="n">name_class</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pod_bias_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;Partisan Lean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name_class</span>
+        <span class="k">elif</span> <span class="n">channel_class</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">pod_bias_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;Partisan Lean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">channel_class</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pod_bias_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;Partisan Lean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Neither&quot;</span>
+    <span class="k">return</span> <span class="n">pod_bias_df</span>
+
+<span class="n">pod_bias_df</span> <span class="o">=</span> <span class="n">pod_df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># preserve original dataframe for ease of editing</span>
+<span class="n">categorize_leans</span><span class="p">(</span><span class="n">pod_bias_df</span><span class="p">,</span> <span class="n">partisan_database</span><span class="p">)</span>
 <span class="n">pod_bias_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -14901,8 +14712,8 @@ Since not all sources can be found using AllSides, I will look through the sourc
 
 <div class="jp-OutputArea-child">
 
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[65]:</div>
+
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[58]:</div>
 
 
 
@@ -14957,8 +14768,8 @@ Since not all sources can be found using AllSides, I will look through the sourc
     </tr>
     <tr>
       <th>4</th>
-      <td>The Wall Street Journal &amp; Gimlet</td>
-      <td>The Journal.</td>
+      <td>NPR</td>
+      <td>On Our Watch</td>
       <td>Center</td>
     </tr>
   </tbody>
@@ -14975,28 +14786,16 @@ Since not all sources can be found using AllSides, I will look through the sourc
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Since the podcasts are now categorized, I will create some useful visualizations.</p>
+<p>Give list of 'Neither' to inspect; allow user to see if anything is miscategorized as nonpolitical.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[145]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
-<span class="n">today_date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%B </span><span class="si">%d</span><span class="s1">, %Y&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#0015BC&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="s2">&quot;#DE0100&quot;</span><span class="p">,</span> <span class="s2">&quot;lightgrey&quot;</span><span class="p">]</span>
-<span class="p">(</span><span class="n">pod_bias_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Partisan Lean&quot;</span><span class="p">)[</span><span class="s2">&quot;Source&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()[[</span><span class="s2">&quot;Left&quot;</span><span class="p">,</span> <span class="s2">&quot;Center&quot;</span><span class="p">,</span> <span class="s2">&quot;Right&quot;</span><span class="p">,</span> <span class="s2">&quot;Neither&quot;</span><span class="p">]]</span>
-<span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today_date</span><span class="si">}</span><span class="se">\n</span><span class="s2">Partisan Lean of Top 50 Spotify Podcasts&quot;</span><span class="p">,</span> 
-      <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># place above grid</span>
-<span class="p">)</span>
-<span class="n">remove_spines</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-<span class="c1"># ax.tick_params(axis=&quot;y&quot;, left=False, labelleft=True)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">facecolor</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pod_bias_df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;`Partisan Lean` == &#39;Neither&#39;&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15011,14 +14810,126 @@ Since not all sources can be found using AllSides, I will look through the sourc
 
 <div class="jp-OutputArea-child">
 
-    
+
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Source</th>
+      <th>Name</th>
+      <th>Partisan Lean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>Serial Productions</td>
+      <td>Serial</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Robinhood Financial, LLC</td>
+      <td>Snacks Daily</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>The Center for Investigative Reporting and PRX</td>
+      <td>Reveal</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>APM Reports</td>
+      <td>In the Dark</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Seeking Alpha</td>
+      <td>Wall Street Breakfast</td>
+      <td>Neither</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Since the podcasts are now categorized, I will create a plot for the current day.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="n">today_date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%B </span><span class="si">%d</span><span class="s1">, %Y&#39;</span><span class="p">)</span>
+<span class="n">today_date_short</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%b</span><span class="si">%d</span><span class="s1">%y&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#0015BC&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="s2">&quot;#DE0100&quot;</span><span class="p">,</span> <span class="s2">&quot;lightgrey&quot;</span><span class="p">]</span>
+<span class="p">(</span><span class="n">pod_bias_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Partisan Lean&quot;</span><span class="p">)[</span><span class="s2">&quot;Source&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()[[</span><span class="s2">&quot;Left&quot;</span><span class="p">,</span> <span class="s2">&quot;Center&quot;</span><span class="p">,</span> <span class="s2">&quot;Right&quot;</span><span class="p">,</span> <span class="s2">&quot;Neither&quot;</span><span class="p">]]</span>
+<span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today_date</span><span class="si">}</span><span class="se">\n</span><span class="s2">Partisan Lean of Top 50 Spotify Podcasts&quot;</span><span class="p">,</span>
+      <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># place above grid</span>
+<span class="p">)</span>
+<span class="n">remove_spines</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="c1"># ax.tick_params(axis=&quot;y&quot;, left=False, labelleft=True)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">labelrotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="n">facecolor</span><span class="p">)</span>
+<span class="c1"># fig.savefig(f&quot;podcast_leans_{today_date_short}.png&quot;, dpi=200)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 
 
 <div class="jp-RenderedImage jp-OutputArea-output ">
-<img src="data:image/png;base64,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
+<img src="data:image/png;base64,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
 "
 >
 </div>
@@ -15032,21 +14943,122 @@ Since not all sources can be found using AllSides, I will look through the sourc
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Looks like a fairly even distribution!</p>
+<h3 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">&#182;</a></h3><p>Looks like a fairly even distribution!</p>
 <p>Appears to be many podcasts in the 'Neither' category that aren't classified. To resolve this, I will let the user see the podcast names for each category by clicking on the bar. By switching settings, they could also see the source, podcast description, and the description for the most recent episode (all on Spotify).</p>
 <p>Later, they could look at intra-category distributions (e.g., progressive vs. neoliberal, lean-left vs. independent, etc.) or other useful stats (self-funded or corporate sponsor?)</p>
-<p>Let's put this on GitHub Pages!</p>
+<p>Let's store this in a file, so I can make comparisons across time. I will be using HDF storage, with each day's dataframe added with a key like "Jun1621" (datetime format of "%b%d%y").</p>
 
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[70]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># testing</span>
+<span class="c1"># df1 = pd.DataFrame({&#39;col1&#39;: [2, 4], &#39;col2&#39;: [5, 8]})</span>
+<span class="c1"># df1.to_hdf(&#39;test.h5&#39;, key=&#39;df1&#39;, mode=&#39;w&#39;)</span>
+<span class="c1"># df2 = pd.DataFrame({&#39;col1&#39;: [1, 4, 3], &#39;col2&#39;: [2, 3, 8]})</span>
+<span class="c1"># df2.to_hdf(&#39;test.h5&#39;, key=&#39;df2&#39;, mode=&#39;a&#39;)</span>
+<span class="c1"># pd.read_hdf(&#39;test.h5&#39;, key=&#39;df2&#39;)</span>
+
+<span class="c1"># append current day&#39;s dataframe to file (test)</span>
+<span class="c1"># pod_bias_df.to_hdf(&quot;podcasts.h5&quot;, key=f&quot;{today_date_short}&quot;, mode=&quot;a&quot;)</span>
+
+<span class="c1"># read current day&#39;s dataframe from file (test)</span>
+<span class="c1"># pd.read_hdf(&quot;podcasts.h5&quot;, key=f&quot;{today_date_short}&quot;)</span>
+
+<span class="c1"># read from batch file&#39;s creation to check if works</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_hdf</span><span class="p">(</span><span class="s2">&quot;../ncrispino.github.io/spotify_podcasts.h5&quot;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today_date_short</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[70]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Source</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Breaking Points with Krystal and Saagar</td>
+      <td>Breaking Points with Krystal and Saagar</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>The New York Times</td>
+      <td>The Daily</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NPR</td>
+      <td>Up First</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>The Daily Wire</td>
+      <td>The Ben Shapiro Show</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NPR</td>
+      <td>On Our Watch</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="References">References<a class="anchor-link" href="#References">&#182;</a></h3><ul>
-<li>My 'Independent Media' notebook</li>
-<li>Interesting article regarding text analysis in politics<ul>
-<li><a href="http://faculty.washington.edu/jwilker/559/wilkerson_casas_2017.pdf">http://faculty.washington.edu/jwilker/559/wilkerson_casas_2017.pdf</a></li>
-<li>could be useful for next project</li>
-</ul>
+<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2><ul>
+<li><a href="https://chartable.com/">Chartable</a></li>
+<li><p><a href="https://www.allsides.com/unbiased-balanced-news">AllSides</a></p>
+
+<pre><code>Creative Commons License: http://creativecommons.org/licenses/by-nc/4.0/
+
+AllSides Media Bias Ratings™ by AllSides.com are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License. These ratings may be used for research or noncommercial purposes with attribution.</code></pre>
 </li>
 </ul>
 

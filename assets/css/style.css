@@ -1,14 +1,18 @@
 html {
-  background-color: #bfbfbf;
-  font-size: 18px;
+  background-color: #138a7e;/*#bfbfbf;*/
+  font-size: 17px;
   font-family: 'Merriweather', serif;
 }
 
+div.notebook {
+  background-color: #a1c4c4;
+}
+
 body {
-  width: 80%;
+  width: 70%;
   margin: 0 auto; /* Put text in middle of page */
-  padding: 10px;
-  background-color: #d9fffd; /* Select off-white color */
+  padding: 0 50px 10px 50px;
+  background-color: #f7fafa /*#d9fffd;  Select off-white color */
 }
 
 img {
@@ -24,7 +28,7 @@ h1 {
 }
 
 /* HOW TO GET TO WORK??? */
-time {
+h1 + p {
   text-align: center
 }
 
@@ -44,8 +48,9 @@ footer {
 /* Nav-bar settings */
 nav.nav-bar {
   border-bottom: 1px solid black;
-  background-color: #f5fafa;
-  padding-top: 15px;
+  background-color: white; /*#28c98e;*/
+  padding-top: 6.5px;
+  margin: auto -50px; /* extend nav-bar to end of page */
 }
 
 #site-logo {
@@ -56,6 +61,7 @@ nav.nav-bar {
 #site-name {
   float: left;
   margin-right: 0px;
+  color: gray;
 }
 
 #search-bar {
@@ -65,7 +71,7 @@ nav.nav-bar {
 
 .nav-static-elements img {
   float: left;
-  margin-top: -25px;
+  margin-top: -20px;
   margin-right: 20px;
 }
 
@@ -75,17 +81,17 @@ nav.nav-bar {
 
 .nav-bar ul li {
   display: inline;
-  margin: auto 40px; /*controls distance between nav-links*/
+  margin: auto 30px; /*controls distance between nav-links*/
 }
 
 .nav-bar ul li a {
   text-decoration: none;
-  color: black;
+  color: gray;
   padding: 15px;
 }
 
 
 /* When hovering over block, highlight whole thing */
 li a:hover {
-  background-color: gray;
+  background-color: black;
 }
