@@ -5,6 +5,8 @@ plugins:
 collections:
   creators:
     output: true
+  projects:
+    output: true
 
 # Now don't need to include layout: ____ in every file
 defaults:
@@ -18,6 +20,11 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
   - scope:
       path: ""
     values:

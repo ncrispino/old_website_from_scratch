@@ -1,6 +1,6 @@
 html {
   background-color: #f7fafa;/*#bfbfbf;*/
-  font-size: 17px;
+  font-size: 18px;
   font-family: 'Merriweather', serif;
 }
 
@@ -9,7 +9,7 @@ div.notebook {
 }
 
 body {
-  width: 70%;
+  width: 60%;
   margin: 0 auto; /* Put text in middle of page */
   padding: 0 50px 10px 50px;
   background-color: #f7fafa /*#d9fffd;  Select off-white color */
@@ -27,9 +27,14 @@ h1 {
 }
 
 /* HOW TO GET TO WORK??? */
-.author-date {
+.post-top {
   text-align: center;
-  padding-bottom: 50px;
+  font-size: 15px;
+  color: #c7c7c7;
+  margin-top: -10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted black;
+  margin-bottom: 40px;
 }
 
 /* Put padding above footer and put a bit of space on left before footer*/
@@ -54,21 +59,30 @@ nav.nav-bar {
   margin-bottom: 40px;
 }
 
+
 #site-logo {
   display: inline;
-  width: 70px;
+  width: 65px;
+  /* current pic has a 98∶85 aspect ratio */
 }
 
 #site-name {
-  font-size: 19px;
-  float: left;
+  /* move site-name next to site-logo -- need to adjust if
+  changing margin between list items */
+  margin-left: -120px;
   margin-right: 0px;
   color: gray;
 }
 
-#search-bar {
-  width: 250px;
-  height: 30px;
+li.search-bar button {
+  /* float: left; */
+}
+
+input.search-bar {
+  float: right;
+  /* width: 250px;
+  height: 30px; */
+  /* border: 5px solid red; */
 }
 
 .nav-static-elements img {
@@ -77,21 +91,27 @@ nav.nav-bar {
   margin-right: 20px;
 }
 
+.nav-elements {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-left: 1px solid black;
+}
+
 .nav-elements li a {
 
 }
 
 .nav-bar ul li {
   display: inline;
-  margin: auto 30px; /*controls distance between nav-links*/
+  margin: auto 40px; /*controls distance between nav-links*/
 }
 
 .nav-bar ul li a {
-  font-size: 18px;
+  font-size: 19px;
   text-decoration: none;
   /* font-weight: bolder; */
   color: gray;
-  padding: 15px;
+  /* padding: 15px; */
 }
 
 a:hover {

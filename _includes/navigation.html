@@ -7,10 +7,9 @@
     <span class="nav-static-elements">
       <li>
         <img id="site-logo" src={{ "../images/poss_logo_1.png" | relative_url }}>
-        <span id="site-name">ncrispino</span>
       </li>
       <li>
-        <input id="search-bar" type="search" placeholder="Search">
+        <a href="/" id="site-name">ncrispino</a>
       </li>
     </span>
     <span class="nav-elements">
@@ -22,5 +21,10 @@
       </li>
       {% endfor %}
     </span>
+    <li class="search-bar">
+      <!-- Search -->
+      <!-- <button>Search</button> -->
+      <input class="search-bar" type="search" placeholder="Search" name="q">
+    </li>
   </ul>
 </nav>

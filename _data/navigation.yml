@@ -1,7 +1,7 @@
 # lists navigation items, each with a name and a link
-- name: Home
-  link: /
 - name: Posts
   link: /blog.html
+- name: Projects
+  link: /project-page.html
 - name: About
   link: /about.html
