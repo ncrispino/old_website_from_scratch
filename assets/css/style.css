@@ -1,5 +1,5 @@
 html {
-  background-color: #138a7e;/*#bfbfbf;*/
+  background-color: #f7fafa;/*#bfbfbf;*/
   font-size: 17px;
   font-family: 'Merriweather', serif;
 }
@@ -16,7 +16,7 @@ body {
 }
 
 img {
-  width: 40%;
+  width: 60%;
   display: block;
   margin: 0 auto;
 }
@@ -24,12 +24,12 @@ img {
 /* Make title in center and put padding below text */
 h1 {
   text-align: center;
-  padding-bottom: 50px;
 }
 
 /* HOW TO GET TO WORK??? */
-h1 + p {
-  text-align: center
+.author-date {
+  text-align: center;
+  padding-bottom: 50px;
 }
 
 /* Put padding above footer and put a bit of space on left before footer*/
@@ -47,10 +47,11 @@ footer {
 
 /* Nav-bar settings */
 nav.nav-bar {
-  border-bottom: 1px solid black;
-  background-color: white; /*#28c98e;*/
+  border-bottom: 5px double black;
+  background-color: #f7fafa; /*#b6d6d5;*/
   padding-top: 6.5px;
   margin: auto -50px; /* extend nav-bar to end of page */
+  margin-bottom: 40px;
 }
 
 #site-logo {
@@ -59,6 +60,7 @@ nav.nav-bar {
 }
 
 #site-name {
+  font-size: 19px;
   float: left;
   margin-right: 0px;
   color: gray;
@@ -85,13 +87,19 @@ nav.nav-bar {
 }
 
 .nav-bar ul li a {
+  font-size: 18px;
   text-decoration: none;
+  /* font-weight: bolder; */
   color: gray;
   padding: 15px;
 }
 
+a:hover {
+  color: black;
+}
 
 /* When hovering over block, highlight whole thing */
 li a:hover {
-  background-color: black;
+  font-weight: bolder;
+  /* background-color: black; */
 }
