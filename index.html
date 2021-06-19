@@ -6,16 +6,27 @@ description: Home page for ncrispino.
 <!-- This is the 'content' put in the layout file 'default' -->
 <main>
   <h1 id="top">{{ page.title }}</h1>
-  <p>
-    Questions:
-  </p>
-  <ul>
-    <li>Should I put recent article & project snippets here?</li>
-    <li>What's the best measure of inflation?</li>
-    <li>Should the Fed create its own digital currency?</li>
-    <li><a href="https://marginalrevolution.com/">marginal revolution blog</a></li>
+  <ul id="main_list">
+    {% for project in site.projects limit:1 %}
+      <li>
+        <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
+        <!-- -<time datetime="{{ post.date }}">{{ post.date | date: "%B %d, %Y" }}</time> -->
+        <div class="shifted">
+          <!-- post.excerpt is first paragraph of post by default -->
+          {{ project.content }}
+        </div>
+      </li>
+    {% endfor %}
+    {% for post in site.posts limit:1 %}
+      <li>
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <!-- -<time datetime="{{ post.date }}">{{ post.date | date: "%B %d, %Y" }}</time> -->
+        <div class="shifted">
+          <!-- post.excerpt is first paragraph of post by default -->
+          {{ post.content }}
+        </div>
+      </li>
+    {% endfor %}
   </ul>
-
-  <img src="/images/may2021_ratings.png" alt="Cable news ratings" id="image"/>
 
 </main>

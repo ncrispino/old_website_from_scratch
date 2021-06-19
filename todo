@@ -1,0 +1,8 @@
+FIRST: finish project (interactive bar graph; possibly make python run and upload online)
+---prob need django for this; should get further in the html tutorial to do this; stick with what I got now
+
+
+Then:
+- Make search bar WORK
+- make nav-bar work when browser is zoomed in
+- make sure everything's accessible (tags)

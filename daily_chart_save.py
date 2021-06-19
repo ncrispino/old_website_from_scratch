@@ -1,3 +1,7 @@
+######################################################
+# Setup
+######################################################
+
 import pickle
 import time
 import requests
@@ -14,6 +18,10 @@ import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 from datetime import date
+
+######################################################
+# Main
+######################################################
 
 # Extract top 50 news podcasts, according to the spotify charts
 url_pod = "https://chartable.com/charts/spotify/united-states-of-america-news-politics"

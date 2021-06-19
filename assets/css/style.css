@@ -1,7 +1,8 @@
 html {
   background-color: #f7fafa;/*#bfbfbf;*/
-  font-size: 18px;
-  font-family: 'Merriweather', serif;
+  font-size: 17px;
+  /* font-family: 'Merriweather', serif; */
+  font-family: 'PT Serif', serif;
 }
 
 div.notebook {
@@ -9,10 +10,18 @@ div.notebook {
 }
 
 body {
-  width: 60%;
+  width: 70%;
   margin: 0 auto; /* Put text in middle of page */
   padding: 0 50px 10px 50px;
   background-color: #f7fafa /*#d9fffd;  Select off-white color */
+}
+
+#main_list li {
+  list-style: none;
+}
+
+#main_list a {
+  text-decoration: none;
 }
 
 img {
@@ -21,10 +30,27 @@ img {
   margin: 0 auto;
 }
 
-/* Make title in center and put padding below text */
-h1 {
+figure img {
+  width: 80%;
+}
+
+div.change_img {
+  /* text-align: center; */
+}
+
+figure {
+  /* display: inline; */
+}
+
+figcaption {
   text-align: center;
 }
+
+/* Make title in center and put padding below text */
+h1, h2, h3, h4 {
+  text-align: center;
+}
+
 
 /* HOW TO GET TO WORK??? */
 .post-top {
@@ -44,10 +70,16 @@ footer {
   margin-left: 10px;
 }
 
-/* Make preview list in blog.html shifted by changing margins */
-.shifted {
-  margin-left: 40px;
+/* Make preview list in blog.html and project-page.html shifted by changing margins */
+div.shifted {
+  text-align: center;
+  /* margin-left: 40px; */
   font-size: 14px;
+}
+
+ul.shifted {
+  list-style: none;
+  padding-left: 0;
 }
 
 /* Nav-bar settings */
@@ -71,7 +103,7 @@ nav.nav-bar {
   changing margin between list items */
   margin-left: -120px;
   margin-right: 0px;
-  color: gray;
+  color: black;
 }
 
 li.search-bar button {
@@ -110,7 +142,7 @@ input.search-bar {
   font-size: 19px;
   text-decoration: none;
   /* font-weight: bolder; */
-  color: gray;
+  color: black;
   /* padding: 15px; */
 }
 

@@ -1,13 +1,14 @@
 ---
+title: Projects
 ---
-<h1>Latest Projects</h1>
+<h1 class="recent">Latest Projects</h1>
 
-<ul>
+<ul class="shifted">
   {% for project in site.projects %}
     <li>
       <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
       <!-- -<time datetime="{{ post.date }}">{{ post.date | date: "%B %d, %Y" }}</time> -->
-      <div class="shifted">
+      <div class="shifted" id="preview-project">
         <!-- post.excerpt is first paragraph of post by default -->
         {{ project.excerpt }}...
       </div>
