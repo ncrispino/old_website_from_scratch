@@ -1,6 +1,16 @@
 FIRST: finish project (interactive bar graph; possibly make python run and upload online)
 ---prob need django for this; should get further in the html tutorial to do this; stick with what I got now
+-----https://romik-kelesh.medium.com/how-to-deploy-a-python-web-scraper-with-selenium-on-heroku-1459cb3ac76c
+        use heroku?
 
+https://podcasters.spotify.com/blog/get-the-full-podcast-picture-with-spotifys-new-and-improved-charts
+https://podcastcharts.byspotify.com/ (can just scrape from here, not Chartable)
+
+1. Create table for CSVs
+2. Make partisan_database categorization (put in csv?) searchable
+3. edit writing and finalize
+4. possibly run the code online; possibly switch from chartable to spotify charts
+5. do class stuff
 
 Then:
 - Make search bar WORK

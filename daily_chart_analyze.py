@@ -97,6 +97,9 @@ def find_biases_dict(source_list, partisan_leans):
                 ratings_table = ratings_soup.find("table", {"class", "views-table cols-4"})
                 source_name = ratings_table.find("td", {"class", "views-field views-field-title source-title"}).text
                 rating = ratings_table.find("td", {"class", "views-field views-field-field-bias-image"}).find("img").get("title").strip()
+                # Only use Center; consider mixed as center, as it is not overly partisan
+                if rating == "Mixed":
+                    rating = "Center"
                 # add last word of AllSides rating to dict, which is of form AllSides Media Bias Rating: _____ (or lean _____)
                 # keys of dict are full names of source, not cleaned names
                 partisan_leans[source_full] = rating.split(" ")[-1]
