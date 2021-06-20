@@ -78,11 +78,21 @@ div.shifted {
 }
 
 ul.shifted {
-  list-style: none;
+  list-style-type: none;
   padding-left: 0;
 }
 
+ul.shifted time {
+  /* font-style: italic; */
+  /* color: #c7c7c7; */
+}
+
 /* Nav-bar settings */
+@media only screen and (max-width: 850px) {
+
+}
+
+
 nav.nav-bar {
   border-bottom: 5px double black;
   background-color: #f7fafa; /*#b6d6d5;*/
