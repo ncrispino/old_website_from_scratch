@@ -88,8 +88,10 @@ ul.shifted time {
 }
 
 /* Nav-bar settings */
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 700px) {
+  /* .nav-bar ul li {
 
+  } */
 }
 
 
@@ -111,7 +113,7 @@ nav.nav-bar {
 #site-name {
   /* move site-name next to site-logo -- need to adjust if
   changing margin between list items */
-  margin-left: -120px;
+  margin-left: -15%;
   margin-right: 0px;
   color: black;
 }
@@ -145,7 +147,7 @@ input.search-bar {
 
 .nav-bar ul li {
   display: inline;
-  margin: auto 40px; /*controls distance between nav-links*/
+  margin: auto 5%; /*controls distance between nav-links*/
 }
 
 .nav-bar ul li a {
@@ -161,7 +163,7 @@ a:hover {
 }
 
 /* When hovering over block, highlight whole thing */
-li a:hover {
+.nav-bar li a:hover {
   font-weight: bolder;
   /* background-color: black; */
 }
