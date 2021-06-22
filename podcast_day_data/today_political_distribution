@@ -1,4 +1,26 @@
-Partisan Lean,Fraction
-Left,0.4222222222222222
-Center,0.26666666666666666
-Right,0.3111111111111111
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fraction</th>
+    </tr>
+    <tr>
+      <th>Partisan Lean</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Left</th>
+      <td>0.422222</td>
+    </tr>
+    <tr>
+      <th>Center</th>
+      <td>0.266667</td>
+    </tr>
+    <tr>
+      <th>Right</th>
+      <td>0.311111</td>
+    </tr>
+  </tbody>
+</table>

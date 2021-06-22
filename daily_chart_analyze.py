@@ -19,7 +19,8 @@ from bs4 import BeautifulSoup
 import re
 import time
 from datetime import date
-today_date_short = date.today().strftime('%b%d%y')
+end_date = pd.to_datetime(date.today()) # to adjust end date
+today_date_short = end_date.strftime('%b%d%y')
 
 # turn on latex for matplotlib
 matplotlib.rc('text', usetex=True)
@@ -65,14 +66,15 @@ def clean_names(names):
         name_list[i] = name_list[i].strip()
     return name_list
 
-
 def find_biases_dict(source_list, partisan_leans):
     """
     Takes a list of strings and finds their corresponding partisan lean according to allsides.com
     and/or the dictionary provided.
     If there is no partisan lean, the value is not placed in the dictionary.
-    Returns given dictionary with the keys as the source names and the values as the partisan leans.
+    Adds to given dictionary with the keys as the source names and the values as the partisan leans.
+    Returns dataframe with source names and links to AllSides searches.
     """
+    source_links = dict()
     source_list_use = clean_names(source_list)
     options = Options()
     options.add_argument("--headless")
@@ -103,10 +105,11 @@ def find_biases_dict(source_list, partisan_leans):
                 # add last word of AllSides rating to dict, which is of form AllSides Media Bias Rating: _____ (or lean _____)
                 # keys of dict are full names of source, not cleaned names
                 partisan_leans[source_full] = rating.split(" ")[-1]
+                source_links[source_full] = "<a href=\"" + driver.current_url + "\">Link</a>"
             except:
                 pass
     driver.close()
-    return partisan_leans
+    return source_links
 
 def categorize_leans(pod_bias_df, partisan_database):
     '''
@@ -136,7 +139,7 @@ def categorize_leans(pod_bias_df, partisan_database):
 
 start_date = "Jun 16 2021"
 daily_charts = []
-for day in pd.date_range(start_date, "Jun 20 2021"):
+for day in pd.date_range(start_date, end_date):
     key_format = day.strftime('%b%d%y')
     # see if chart for given day exists
     try:
@@ -148,16 +151,27 @@ for day in pd.date_range(start_date, "Jun 20 2021"):
     except KeyError:
         pass
 combined_df = pd.concat(daily_charts)
+
 with open('podcast_day_data/partisan_database.pkl', 'rb') as f:
     partisan_database = pickle.load(f)
 
+with open('podcast_day_data/source_list.pkl', 'rb') as f:
+    source_list = pickle.load(f)
+
+# To restart:
+# partisan_database = dict()
+# source_list = dict()
+
 sources = list(combined_df["Source"].values)
-find_biases_dict(sources, partisan_database)
+source_list.update(find_biases_dict(sources, partisan_database))
 pod_bias_df = combined_df.reset_index().rename(columns={"index": "Rank"}).set_index(["Date", "Rank"]) # with no duplicate indices
 categorize_leans(pod_bias_df, partisan_database)
 
 with open('podcast_day_data/partisan_database.pkl', 'wb') as f:
     pickle.dump(partisan_database, f)
+
+with open('podcast_day_data/source_list.pkl', 'wb') as f:
+    pickle.dump(source_list, f)
 
 ##### Save current day "Neither" table
 pod_neither_df = (pod_bias_df.reset_index()
@@ -165,7 +179,16 @@ pod_neither_df = (pod_bias_df.reset_index()
                   .drop_duplicates()
                   .query("`Partisan Lean` == 'Neither'")
                  )
-pod_neither_df.to_csv(f"podcast_day_data/today_neither")
+pod_neither_df.to_html(f"podcast_day_data/today_neither", index=False)
+
+# find classification for all political podcasts
+pod_political_df = (pod_bias_df.reset_index()
+                    .drop(columns=["Date", "Rank"])
+                    .drop_duplicates()
+                    .sort_values("Source")
+                    .query("`Partisan Lean` != 'Neither'")
+                   )
+pod_political_df.to_html("podcast_day_data/all_pods_partisan_leans", index=False) # don't print numbers; they're not relevant with given transforms
 
 # counts number of podcasts with given partisan leans per day,
 # setting multiindex with outer layer as date and inner as partisan lean
@@ -173,6 +196,10 @@ partisan_daily_count = (pod_bias_df.reset_index()[["Date", "Partisan Lean"]]
                         .groupby(["Date", "Partisan Lean"])
                         .size().to_frame("Count")
                        )
+# get avg number of leans for each podcast everyday & percent distribution for each political lean
+partisan_daily_count.groupby("Partisan Lean").mean().to_html("podcast_day_data/temporal_avg_leans_per_day")
+mean_pods = partisan_daily_count.groupby("Partisan Lean").mean().drop("Neither")
+(mean_pods/mean_pods.sum()).to_html("podcast_day_data/temporal_mean_leans_percent")
 
 ##### Creates current day graph
 
@@ -181,9 +208,9 @@ line_order = ["Left", "Center", "Right", "Neither"]
 colors = [colors_dict.get(l) for l in line_order]
 
 fig, ax = plt.subplots(figsize=(8, 4))
-current_day_df = pod_bias_df.loc[pd.to_datetime(date.today()), :].groupby("Partisan Lean").size()[line_order]
+current_day_df = pod_bias_df.loc[pd.to_datetime(end_date), :].groupby("Partisan Lean").size()[line_order]
 
-current_day_df.plot(ax=ax, kind="bar", color=colors, title=f"{date.today().strftime('%b %d, %Y')}\nSpotify Top 50 US News Podcasts by Political Lean",
+current_day_df.plot(ax=ax, kind="bar", color=colors, title=f"{end_date.strftime('%b %d, %Y')}\nSpotify Top 50 US News Podcasts by Political Lean",
       xlabel="", zorder=2) # place above grid
 
 remove_spines(ax)
@@ -193,7 +220,7 @@ ax.set_facecolor(facecolor)
 fig.savefig(f"podcast_day_data/podcast_leans_today.png", dpi=200)
 
 # Show distribution of current day's podcasts belonging to each political lean
-(current_day_df.drop("Neither")/current_day_df.drop("Neither").sum()).to_frame("Fraction").to_csv(f"podcast_day_data/today_political_distribution")
+(current_day_df.drop("Neither")/current_day_df.drop("Neither").sum()).to_frame("Fraction").to_html(f"podcast_day_data/today_political_distribution")
 
 
 ##### Creates throughout time graphs
@@ -210,7 +237,7 @@ real_labels = [l[:-1].split(", ")[1] for l in labels]
 ax.legend(handles, real_labels, ncol=4, loc="center", bbox_to_anchor=(0.5, 1.07), fancybox=True, shadow=True)
 
 # if there are less than 8 days, set xticks to be everyday
-time_range = pd.date_range("Jun 16, 2021", pd.to_datetime(date.today()))
+time_range = pd.date_range("Jun 16, 2021", end_date)
 if len(time_range) <= 8:
     ax.set_xticks(time_range)
 

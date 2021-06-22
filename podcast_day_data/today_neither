@@ -1,8 +1,46 @@
-,Source,Name,Partisan Lean
-10,Serial Productions,Serial,Neither
-11,"Robinhood Financial, LLC",Snacks Daily,Neither
-39,The Center for Investigative Reporting and PRX,Reveal,Neither
-43,APM Reports,In the Dark,Neither
-45,Seeking Alpha,Wall Street Breakfast,Neither
-189,Yahoo News,Conspiracyland,Neither
-248,Shit You Should Care About,The Shit Show,Neither
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Source</th>
+      <th>Name</th>
+      <th>Partisan Lean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Serial Productions</td>
+      <td>Serial</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <td>Robinhood Financial, LLC</td>
+      <td>Snacks Daily</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <td>The Center for Investigative Reporting and PRX</td>
+      <td>Reveal</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <td>APM Reports</td>
+      <td>In the Dark</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <td>Seeking Alpha</td>
+      <td>Wall Street Breakfast</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <td>Yahoo News</td>
+      <td>Conspiracyland</td>
+      <td>Neither</td>
+    </tr>
+    <tr>
+      <td>Shit You Should Care About</td>
+      <td>The Shit Show</td>
+      <td>Neither</td>
+    </tr>
+  </tbody>
+</table>

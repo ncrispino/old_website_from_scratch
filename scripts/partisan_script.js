@@ -25,3 +25,20 @@ myImage.onclick = function() {
     document.getElementById("change_img").textContent = "Click the image to see the partisan leans across time.";
   }
 }
+
+// Include HTML tables into this file
+$(function(){
+  $("#classify-justify").load("../podcast_day_data/classify_justify");
+});
+// $(function(){
+//   $("#all-pods-lean").load("../podcast_day_data/all_pods_partisan_leans");
+// });
+$(function(){
+  $("#mean-leans").load("../podcast_day_data/temporal_mean_leans_percent");
+});
+$(function(){
+  $("#today-political").load("../podcast_day_data/today_political_distribution");
+});
+$(function(){
+  $("#today-neither").load("../podcast_day_data/today_neither");
+});
