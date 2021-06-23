@@ -17,7 +17,7 @@ title: Partisan Podcasts Interactive
 
 <div id="plotly-today"></div>
 <div id="plotly-temporal"></div>
-
+<!--more-->
 <br />
 
 <div id="fraction-compare">

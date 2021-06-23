@@ -200,7 +200,7 @@ partisan_daily_count = (pod_bias_df.reset_index()[["Date", "Partisan Lean"]]
 # get avg number of leans for each podcast everyday & percent distribution for each political lean
 partisan_daily_count.groupby("Partisan Lean").mean().loc[line_order, :].to_html("podcast_day_data/temporal_avg_leans_per_day")
 mean_pods = partisan_daily_count.groupby("Partisan Lean").mean().loc[line_order, :].drop("Neither")
-(mean_pods/mean_pods.sum()).to_html("podcast_day_data/temporal_mean_leans_percent")
+(mean_pods/mean_pods.sum()).to_html("podcast_day_data/temporal_mean_leans_percent", header=False)
 
 ##### Creates current day graph
 
@@ -220,7 +220,7 @@ ax.set_facecolor(facecolor)
 fig.savefig(f"podcast_day_data/podcast_leans_today.png", dpi=200)
 
 # Show distribution of current day's podcasts belonging to each political lean
-(current_day_df.drop("Neither")/current_day_df.drop("Neither").sum()).to_frame("Fraction").to_html(f"podcast_day_data/today_political_distribution")
+(current_day_df.drop("Neither")/current_day_df.drop("Neither").sum()).to_frame("Fraction").to_html(f"podcast_day_data/today_political_distribution", header=False)
 
 
 ######################################################
@@ -281,7 +281,7 @@ fig = px.bar(plot_day_with_pods, x="Partisan Lean", y="Number of Podcasts",
             hover_name="Podcasts")
 fig.write_html("plotly_today_podcasts.html")
 
-##### Temporal: 
+##### Temporal:
 fig = px.line(partisan_count_graph["Count"], color="Partisan Lean", color_discrete_map=colors_dict,
              title="Spotify Top 50 US News Podcasts by Partisan Lean")
 fig.update_xaxes(

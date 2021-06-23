@@ -49,12 +49,7 @@
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>Pod Save the World</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <td>Crooked Media</td>
-      <td>Lovett or Leave It</td>
+      <td>Pod Save America</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -64,7 +59,12 @@
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>Pod Save America</td>
+      <td>Pod Save the World</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <td>Crooked Media</td>
+      <td>Lovett or Leave It</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -134,7 +134,12 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>Up First</td>
+      <td>NPR News Now</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>Consider This from NPR</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -144,22 +149,17 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>On Our Watch</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
-      <td>NPR News Now</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
       <td>No Compromise</td>
       <td>Center</td>
     </tr>
     <tr>
       <td>NPR</td>
-      <td>Consider This from NPR</td>
+      <td>Up First</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>On Our Watch</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -188,23 +188,13 @@
       <td>Left</td>
     </tr>
     <tr>
-      <td>The Daily Wire</td>
-      <td>The Andrew Klavan Show</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <td>The Daily Wire</td>
-      <td>Debunked</td>
-      <td>Right</td>
+      <td>Slate Podcasts</td>
+      <td>What Next | Daily News and Analysis</td>
+      <td>Left</td>
     </tr>
     <tr>
       <td>The Daily Wire</td>
       <td>The Ben Shapiro Show</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <td>The Daily Wire</td>
-      <td>The Michael Knowles Show</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -214,17 +204,32 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
+      <td>Debunked</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>The Michael Knowles Show</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
       <td>Candace</td>
       <td>Right</td>
     </tr>
     <tr>
-      <td>The Economist</td>
-      <td>The Economist Morning Briefing</td>
-      <td>Left</td>
+      <td>The Daily Wire</td>
+      <td>The Andrew Klavan Show</td>
+      <td>Right</td>
     </tr>
     <tr>
       <td>The Economist</td>
       <td>Economist Radio</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <td>The Economist</td>
+      <td>The Economist Morning Briefing</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -244,12 +249,12 @@
     </tr>
     <tr>
       <td>The Wall Street Journal</td>
-      <td>WSJ What’s News</td>
+      <td>WSJ Your Money Briefing</td>
       <td>Right</td>
     </tr>
     <tr>
       <td>The Wall Street Journal</td>
-      <td>WSJ Your Money Briefing</td>
+      <td>WSJ What’s News</td>
       <td>Right</td>
     </tr>
     <tr>

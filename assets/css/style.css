@@ -25,14 +25,11 @@ body {
 }
 
 img {
-  width: 60%;
+  width: 80%;
   display: block;
   margin: 0 auto;
 }
 
-figure img {
-  width: 80%;
-}
 
 div.change_img {
   /* text-align: center; */
@@ -71,6 +68,20 @@ footer {
 }
 
 /* Make preview list in blog.html and project-page.html shifted by changing margins */
+#show-proj {
+  display: block;
+}
+#show-post {
+  display: none;
+}
+
+
+li.home-post {
+  padding: 50px;
+  padding-top: 10px;
+  background-color: white;
+}
+
 div.shifted {
   text-align: center;
   /* margin-left: 40px; */

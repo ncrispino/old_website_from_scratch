@@ -5,12 +5,12 @@ After learning basic python (i.e., Numpy, Matplotlib, and Pandas) from [QuantEco
 
 So, I shifted my focus to podcasts. Podcast data are difficult to find; unlike YouTube, there are no fully-transparent statistics available for views, downloads, or revenue. Because I still wanted to focus on podcasts, I realized I needed to use other data as a proxy. Spotify and Apple podcasts, [two of the most popular podcast platforms](https://www.statista.com/statistics/943537/podcast-listening-apps-us/), both maintained a list of top news podcasts, which I obtained through [Chartable](https://chartable.com/charts/spotify/united-states-of-america-news-politics). This allowed me to extract the top 50 news and politics podcasts in America for any given day.
 
-Using these data, I wanted to find both **1)** the impact of each podcast relative to each other and **2)** the number of podcasts per political leaning (simplified to left, center, and right, or neither if the podcast wasn't politically-based).
+Using these data, I wanted to find <!-- both **1)** the impact of each podcast relative to each other and **2)** --> the number of podcasts per political leaning (simplified to left, center, and right, or neither if the podcast wasn't politically-based).
 
-### 1) Analyzing Podcast Impact Using Google Trends
-Put code here.
+<!-- ### 1) Analyzing Podcast Impact Using Google Trends
+Put code here. -->
 
-### 2) Finding Political Podcast Lean
+### Finding Political Podcast Lean
 Before I present these data nicely, I'll show my Jupyter Notebook, which details my thought process into how to go about classifying podcasts. Originally, I planned to use machine learning and natural language processing to classify podcasts based on their Spotify podcast description or episode descriptions. However, that proved too time-consuming and unnecessary. There are only so many media groups or people who create podcasts, and since the episode descriptions aren't standardized, a far-left podcast could use similar verbage as a far-right one, therefore limiting the usefulness of an algorithm. If I planned to include much more than the top 50 podcasts, this approach have been more useful (and I could have expanded my scope, maybe using each podcast/podcast creator's Twitter, which may lend itself to more accurate categorization than episode descriptions), as I could tolerate a few miscategorizations due to the large sample size. However, as I was only categorizing 50 podcasts, I wanted no errors. Thus, using a third-party website and supplementing it with my classifications seemed the best approach, the process of which is described in the Jupyter Notebook:
 
 [Original Jupyter Notebook]({% link Partisan-Podcasts.html %}){:target="_blank"}

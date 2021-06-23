@@ -4,11 +4,12 @@ title: Home
 description: Home page for ncrispino.
 ---
 <!-- This is the 'content' put in the layout file 'default' -->
-<main>
-  <h1 id="top">{{ page.title }}</h1>
+<main id="page-top">
+  <!-- <h1 id="top">{{ page.title }}</h1> -->
+  <input id="toggle" type="button" onclick="show()"/>
   <ul id="main_list" class="shifted">
     {% for project in site.projects limit:1 %}
-      <li>
+      <li class="home-post" id="show-proj">
         <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
         <!-- -<time datetime="{{ post.date }}">{{ post.date | date: "%B %d, %Y" }}</time> -->
         <div class="shifted">
@@ -17,8 +18,9 @@ description: Home page for ncrispino.
         </div>
       </li>
     {% endfor %}
+
     {% for post in site.posts limit:1 %}
-      <li>
+      <li class="home-post" id="show-post">
         <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
         <!-- -<time datetime="{{ post.date }}">{{ post.date | date: "%B %d, %Y" }}</time> -->
         <div class="shifted">
@@ -28,5 +30,7 @@ description: Home page for ncrispino.
       </li>
     {% endfor %}
   </ul>
+
+<script src="..\scripts\home.js"></script>
 
 </main>
