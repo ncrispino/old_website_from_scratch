@@ -3,10 +3,36 @@ html {
 }
 
 table {
+  margin: 0px auto; /* centers tables */
   border-collapse: collapse;
   border: 2px solid rgb(200,200,200);
   letter-spacing: 1px;
   font-size: 0.8rem;
+}
+#classify-justify {
+  overflow-y: scroll;
+  height: 400px;
+}
+
+#classify-justify thead th {
+  position: sticky;
+  top: 0;
+}
+
+#all-neither table{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* table-layout: fixed; */
+}
+
+#today-political, #mean-leans {
+  display: inline-block;
+}
+
+/* Center tables with comparative stats */
+#fraction-compare {
+  text-align: center;
 }
 
 td, th {
@@ -15,6 +41,7 @@ td, th {
 }
 
 th {
+  text-align: center;
   background-color: rgb(235,235,235);
 }
 

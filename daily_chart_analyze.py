@@ -21,6 +21,7 @@ import time
 from datetime import date
 end_date = pd.to_datetime(date.today()) # to adjust end date
 today_date_short = end_date.strftime('%b%d%y')
+line_order = ["Left", "Center", "Right", "Neither"]
 
 # turn on latex for matplotlib
 matplotlib.rc('text', usetex=True)
@@ -197,18 +198,17 @@ partisan_daily_count = (pod_bias_df.reset_index()[["Date", "Partisan Lean"]]
                         .size().to_frame("Count")
                        )
 # get avg number of leans for each podcast everyday & percent distribution for each political lean
-partisan_daily_count.groupby("Partisan Lean").mean().to_html("podcast_day_data/temporal_avg_leans_per_day")
-mean_pods = partisan_daily_count.groupby("Partisan Lean").mean().drop("Neither")
+partisan_daily_count.groupby("Partisan Lean").mean().loc[line_order, :].to_html("podcast_day_data/temporal_avg_leans_per_day")
+mean_pods = partisan_daily_count.groupby("Partisan Lean").mean().loc[line_order, :].drop("Neither")
 (mean_pods/mean_pods.sum()).to_html("podcast_day_data/temporal_mean_leans_percent")
 
 ##### Creates current day graph
 
-colors_dict = {"Left": "#0015BC", "Center": "#301934", "Right": "#DE0100", "Neither": "lightgrey"}
-line_order = ["Left", "Center", "Right", "Neither"]
+colors_dict = {"Left": "#0015BC", "Center": "#301934", "Right": "#DE0100", "Neither": "#bababa"}
 colors = [colors_dict.get(l) for l in line_order]
 
 fig, ax = plt.subplots(figsize=(8, 4))
-current_day_df = pod_bias_df.loc[pd.to_datetime(end_date), :].groupby("Partisan Lean").size()[line_order]
+current_day_df = pod_bias_df.loc[end_date, :].groupby("Partisan Lean").size()[line_order]
 
 current_day_df.plot(ax=ax, kind="bar", color=colors, title=f"{end_date.strftime('%b %d, %Y')}\nSpotify Top 50 US News Podcasts by Political Lean",
       xlabel="", zorder=2) # place above grid
@@ -223,7 +223,9 @@ fig.savefig(f"podcast_day_data/podcast_leans_today.png", dpi=200)
 (current_day_df.drop("Neither")/current_day_df.drop("Neither").sum()).to_frame("Fraction").to_html(f"podcast_day_data/today_political_distribution")
 
 
-##### Creates throughout time graphs
+######################################################
+# Creates Throughout Time Graphs
+######################################################
 
 fig, ax = plt.subplots()
 # Reorder
@@ -254,3 +256,38 @@ for lean in ["Left", "Right", "Center", "Neither"]:
                 xytext=(last_pt.name + time_offset, last_pt[0]))
 fig.tight_layout()
 fig.savefig(f"podcast_day_data/temporal_leans_until_today.png", dpi=200)
+
+######################################################
+# Save interactive (plotly) graphs
+######################################################
+import plotly.express as px
+
+##### Today:
+
+# needed to reset index so as to access Partisan Lean for color_discrete_map (need a column for it) to put partisan colors
+plot_day_df = current_day_df.to_frame().reset_index().rename(columns={0: "Number of Podcasts"})
+# Create list of today's podcasts for each category with a line break after each podcast in the form: Source, Name
+today_podcasts = []
+for lean in line_order:
+    lean_pods = list(pod_bias_df.query("Date == @end_date and `Partisan Lean` == @lean").drop(columns="Partisan Lean").values)
+    lean_pods = [": ".join(list(lp)) for lp in lean_pods]
+    lean_pods = "<br>".join(lean_pods)
+    today_podcasts.append(lean_pods)
+today_podcasts_df = pd.DataFrame(today_podcasts, index=line_order).rename(columns={0: "Podcasts"})
+plot_day_with_pods = plot_day_df.merge(today_podcasts_df, left_on="Partisan Lean", right_index=True)
+fig = px.bar(plot_day_with_pods, x="Partisan Lean", y="Number of Podcasts",
+             color="Partisan Lean", color_discrete_map=colors_dict,
+            title=f"{end_date.strftime('%b %d, %Y')}<br>Spotify Top 50 US News Podcasts by Political Lean",
+            hover_name="Podcasts")
+fig.write_html("plotly_today_podcasts.html")
+
+##### Temporal: 
+fig = px.line(partisan_count_graph["Count"], color="Partisan Lean", color_discrete_map=colors_dict,
+             title="Spotify Top 50 US News Podcasts by Partisan Lean")
+fig.update_xaxes(
+    tickformat="%d %b, %Y")
+# if there are fewer than 10 days, make ticks go by day; else, go with whatever Plotly does automatically.
+if (end_date - pd.to_datetime(start_date)).days <= 10:
+    fig.update_xaxes(dtick="1D")
+fig.update_yaxes(title="Number of Podcasts")
+fig.write_html("plotly_temporal_podcasts.html")

@@ -11,20 +11,20 @@
   </thead>
   <tbody>
     <tr>
-      <th>Center</th>
-      <td>12.166667</td>
-    </tr>
-    <tr>
       <th>Left</th>
-      <td>18.000000</td>
+      <td>18.285714</td>
     </tr>
     <tr>
-      <th>Neither</th>
-      <td>5.000000</td>
+      <th>Center</th>
+      <td>12.285714</td>
     </tr>
     <tr>
       <th>Right</th>
-      <td>14.833333</td>
+      <td>14.714286</td>
+    </tr>
+    <tr>
+      <th>Neither</th>
+      <td>4.714286</td>
     </tr>
   </tbody>
 </table>

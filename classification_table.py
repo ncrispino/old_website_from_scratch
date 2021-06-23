@@ -49,6 +49,7 @@ all_classify = []
 # names_classify has 3 lists inside, one for each classification, of the structure described above
 for nc in names_classify:
     for name_just in nc[0]:
+        if name_just[2] != "": name_just[2] = ("<a href=\"" + name_just[2] + "\">Link</a>")
         partisan_database[name_just[0]] = nc[1]
         name_just.append(nc[1])
         all_classify.append(name_just)
@@ -73,4 +74,4 @@ given_rank_df = (
                     .rename(columns=dict(enumerate(cols)))
                 )
 final_classify_df = pd.concat([df, given_rank_df]).reset_index(drop=True).sort_values("Name/Source")
-final_classify_df.to_html("podcast_day_data/classify_justify", index=False, escape=False)
+final_classify_df.to_html("podcast_day_data/classify_justify", index=False, escape=False, render_links=True)

@@ -54,12 +54,12 @@
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>What A Day</td>
+      <td>Lovett or Leave It</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>Lovett or Leave It</td>
+      <td>What A Day</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -129,7 +129,17 @@
     </tr>
     <tr>
       <td>NPR</td>
+      <td>The NPR Politics Podcast</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
       <td>Up First</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>Code Switch</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -140,16 +150,6 @@
     <tr>
       <td>NPR</td>
       <td>NPR News Now</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
-      <td>The NPR Politics Podcast</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
-      <td>Code Switch</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -194,7 +194,7 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
-      <td>The Matt Walsh Show</td>
+      <td>Debunked</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -204,7 +204,12 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
-      <td>Debunked</td>
+      <td>The Michael Knowles Show</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>The Matt Walsh Show</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -213,18 +218,13 @@
       <td>Right</td>
     </tr>
     <tr>
-      <td>The Daily Wire</td>
-      <td>The Michael Knowles Show</td>
-      <td>Right</td>
-    </tr>
-    <tr>
       <td>The Economist</td>
-      <td>Economist Radio</td>
+      <td>The Economist Morning Briefing</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>The Economist</td>
-      <td>The Economist Morning Briefing</td>
+      <td>Economist Radio</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -259,12 +259,12 @@
     </tr>
     <tr>
       <td>The Washington Post</td>
-      <td>Post Reports</td>
+      <td>Please, Go On with James Hohmann</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>The Washington Post</td>
-      <td>Please, Go On with James Hohmann</td>
+      <td>Post Reports</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -275,6 +275,11 @@
     <tr>
       <td>Vox</td>
       <td>Today, Explained</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <td>Yahoo News</td>
+      <td>Conspiracyland</td>
       <td>Left</td>
     </tr>
     <tr>

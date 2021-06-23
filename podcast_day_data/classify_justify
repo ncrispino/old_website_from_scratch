@@ -11,7 +11,7 @@
     <tr>
       <td>Axios & Pushkin Industries</td>
       <td>Most readers moderate, slightly left-leaning but not entirely</td>
-      <td>https://en.wikipedia.org/wiki/Axios_(website)</td>
+      <td><a href="https://en.wikipedia.org/wiki/Axios_(website)">Link</a></td>
       <td>Center</td>
     </tr>
     <tr>
@@ -29,7 +29,7 @@
     <tr>
       <td>Breaking Points with Krystal and Saagar</td>
       <td>Hosts Krystal Ball and Saagar Enjeti both populists but the former leans left and the latter leans right. Even though they aren't the center, contains representative from both and doesn't fit well on either side. See info about their old show, Rising, for more.</td>
-      <td>https://en.wikipedia.org/wiki/Rising_(news_show)</td>
+      <td><a href="https://en.wikipedia.org/wiki/Rising_(news_show)">Link</a></td>
       <td>Center</td>
     </tr>
     <tr>
@@ -41,7 +41,7 @@
     <tr>
       <td>Chapo Trap House</td>
       <td>Self-described far-left</td>
-      <td>https://en.wikipedia.org/wiki/Chapo_Trap_House</td>
+      <td><a href="https://en.wikipedia.org/wiki/Chapo_Trap_House">Link</a></td>
       <td>Left</td>
     </tr>
     <tr>
@@ -53,19 +53,19 @@
     <tr>
       <td>Crooked Media</td>
       <td>Created by former Obama staffers</td>
-      <td>https://en.wikipedia.org/wiki/Crooked_Media</td>
+      <td><a href="https://en.wikipedia.org/wiki/Crooked_Media">Link</a></td>
       <td>Left</td>
     </tr>
     <tr>
       <td>Dan Bongino</td>
       <td>Ran for Congress as republican</td>
-      <td>https://en.wikipedia.org/wiki/Dan_Bongino</td>
+      <td><a href="https://en.wikipedia.org/wiki/Dan_Bongino">Link</a></td>
       <td>Right</td>
     </tr>
     <tr>
       <td>Devil May Care Media</td>
       <td>Founder Megyn Kelly is self-described independent</td>
-      <td>https://en.wikipedia.org/wiki/Megyn_Kelly</td>
+      <td><a href="https://en.wikipedia.org/wiki/Megyn_Kelly">Link</a></td>
       <td>Center</td>
     </tr>
     <tr>
@@ -77,7 +77,7 @@
     <tr>
       <td>Fear & Malding</td>
       <td>Self-described as left-leaning podcast</td>
-      <td>https://open.spotify.com/show/5uKAwUEZun3X9NyxnwfS7e (Fear & Malding)</td>
+      <td><a href="https://open.spotify.com/show/5uKAwUEZun3X9NyxnwfS7e (Fear & Malding)">Link</a></td>
       <td>Left</td>
     </tr>
     <tr>
@@ -95,7 +95,7 @@
     <tr>
       <td>Hodgetwins</td>
       <td>Self-proclaimed conservatives</td>
-      <td>https://en.wikipedia.org/wiki/Hodgetwins</td>
+      <td><a href="https://en.wikipedia.org/wiki/Hodgetwins">Link</a></td>
       <td>Right</td>
     </tr>
     <tr>
@@ -107,7 +107,7 @@
     <tr>
       <td>Mark Levin</td>
       <td>Fox News contributor and worked in Reagan White House</td>
-      <td>https://en.wikipedia.org/wiki/Mark_Levin</td>
+      <td><a href="https://en.wikipedia.org/wiki/Mark_Levin">Link</a></td>
       <td>Right</td>
     </tr>
     <tr>
@@ -143,7 +143,7 @@
     <tr>
       <td>Part Of The Problem</td>
       <td>Hosted by self-described libertarian</td>
-      <td>https://gasdigitalnetwork.com/gdn-show-channels/part-of-the-problem/</td>
+      <td><a href="https://gasdigitalnetwork.com/gdn-show-channels/part-of-the-problem/">Link</a></td>
       <td>Right</td>
     </tr>
     <tr>
@@ -167,13 +167,13 @@
     <tr>
       <td>Real Time with Bill Maher</td>
       <td>Bill Maher is self-described leftist; against cancel-culture but still a progressive</td>
-      <td>https://en.wikipedia.org/wiki/Bill_Maher#Politics</td>
+      <td><a href="https://en.wikipedia.org/wiki/Bill_Maher#Politics">Link</a></td>
       <td>Left</td>
     </tr>
     <tr>
       <td>Soundfront</td>
       <td>From Abbson, a conservative media company</td>
-      <td>https://soundfront.com/</td>
+      <td><a href="https://soundfront.com/">Link</a></td>
       <td>Right</td>
     </tr>
     <tr>
@@ -228,6 +228,12 @@
       <td>Vox</td>
       <td>AllSides</td>
       <td><a href="https://www.allsides.com/media-bias/media-bias-ratings?field_featured_bias_rating_value=All&field_news_source_type_tid[1]=1&field_news_source_type_tid[2]=2&field_news_source_type_tid[3]=3&field_news_source_type_tid[4]=4&field_news_bias_nid_1[1]=1&field_news_bias_nid_1[2]=2&field_news_bias_nid_1[3]=3&title=Vox">Link</a></td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <td>Yahoo News</td>
+      <td>AllSides</td>
+      <td><a href="https://www.allsides.com/media-bias/media-bias-ratings?field_featured_bias_rating_value=All&field_news_source_type_tid[1]=1&field_news_source_type_tid[2]=2&field_news_source_type_tid[3]=3&field_news_source_type_tid[4]=4&field_news_bias_nid_1[1]=1&field_news_bias_nid_1[2]=2&field_news_bias_nid_1[3]=3&title=Yahoo%20News">Link</a></td>
       <td>Left</td>
     </tr>
   </tbody>
