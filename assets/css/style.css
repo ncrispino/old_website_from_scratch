@@ -82,6 +82,10 @@ li.home-post {
   background-color: white;
 }
 
+li.home-post div p {
+  text-align: left;
+}
+
 div.shifted {
   text-align: center;
   /* margin-left: 40px; */
