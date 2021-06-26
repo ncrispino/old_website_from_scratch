@@ -54,12 +54,12 @@
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>What A Day</td>
+      <td>Pod Save the World</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>Pod Save the World</td>
+      <td>What A Day</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -129,11 +129,6 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>The NPR Politics Podcast</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
       <td>NPR News Now</td>
       <td>Center</td>
     </tr>
@@ -144,7 +139,12 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>Code Switch</td>
+      <td>The NPR Politics Podcast</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>On Our Watch</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -159,7 +159,7 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>On Our Watch</td>
+      <td>Code Switch</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -194,7 +194,7 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
-      <td>The Ben Shapiro Show</td>
+      <td>Debunked</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -204,17 +204,17 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
-      <td>Debunked</td>
+      <td>Candace</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>The Ben Shapiro Show</td>
       <td>Right</td>
     </tr>
     <tr>
       <td>The Daily Wire</td>
       <td>The Michael Knowles Show</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <td>The Daily Wire</td>
-      <td>Candace</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -234,12 +234,12 @@
     </tr>
     <tr>
       <td>The New York Times</td>
-      <td>1619</td>
+      <td>The Daily</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>The New York Times</td>
-      <td>The Daily</td>
+      <td>1619</td>
       <td>Left</td>
     </tr>
     <tr>
