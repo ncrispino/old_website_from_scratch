@@ -44,7 +44,10 @@ both and doesn't fit well on either side. See info about their old show, Rising,
                   ["Devil May Care Media", "Founder Megyn Kelly is self-described independent",
                    "https://en.wikipedia.org/wiki/Megyn_Kelly"],
                   ["Axios & Pushkin Industries", "Most readers moderate, slightly left-leaning but not entirely",
-                   "https://en.wikipedia.org/wiki/Axios_(website)"]],
+                   "https://en.wikipedia.org/wiki/Axios_(website)"],
+                   ["Mea Culpa with Michael Cohen", "Hosted by Trump's former lawyer, which would indicate a right lean. \
+                   However, he has begun to criticize Trump, which would align him better with the left. As such, I'll place him as center.",
+                   "https://en.wikipedia.org/wiki/Michael_Cohen_(lawyer)"]],
                  "Center"]
 names_classify.extend([right_names, left_names, center_names])
 
