@@ -9,19 +9,19 @@ table {
   letter-spacing: 1px;
   font-size: 0.8rem;
 }
-#classify-justify {
+#all-neither, #classify-justify {
   overflow-y: scroll;
   height: 400px;
 }
 
-#classify-justify thead th {
+#all-neither thead th, #classify-justify thead th {
   position: sticky;
   top: 0;
 }
 
 #all-neither table{
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   width: 100%;
   /* table-layout: fixed; */
 }

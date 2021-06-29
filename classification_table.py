@@ -14,6 +14,8 @@ with open('podcast_day_data/partisan_database.pkl', 'rb') as f:
 # classifications written as a nested list consisting of many [podcast name/source, justification, link to reason] in a list as
 # the first item (index 0) of the outside list and the political justification as the second item (index 1) of the that list
 names_classify = []
+
+# don't use any of the following in this: r"^[Tt]he\s+|\S?[Ss]how\S?|\S?[Pp]odcast\S?|\s[Rr]adio$"
 right_names = [[["The Realignment", "Hosts Saagar Enjeti and Marshall Kosloff both describe themselves as right-of-center; \
 though they (at least Saagar) may be more populist, they still hold views better aligned with conservatives", ""],
                 ["Dan Bongino", "Ran for Congress as republican", "https://en.wikipedia.org/wiki/Dan_Bongino"],
@@ -23,8 +25,8 @@ though they (at least Saagar) may be more populist, they still hold views better
                 ["Part Of The Problem", "Hosted by self-described libertarian", "https://gasdigitalnetwork.com/gdn-show-channels/part-of-the-problem/"],
                 ["Soundfront", "From Abbson, a conservative media company", "https://soundfront.com/"],
                 ["Hodgetwins", "Self-proclaimed conservatives", "https://en.wikipedia.org/wiki/Hodgetwins"],
-                ["The Rush Limbaugh Show", "Conservative talk radio show", "https://en.wikipedia.org/wiki/The_Rush_Limbaugh_Show"],
-                ["The Clay Travis and Buck Sexton Show", "Conservative talk radio show taking over for The Rush Limbaugh Show", "https://en.wikipedia.org/wiki/The_Rush_Limbaugh_Show"]],
+                ["Rush Limbaugh", "Conservative talk radio show", "https://en.wikipedia.org/wiki/The_Rush_Limbaugh_Show"],
+                ["Clay Travis and Buck Sexton", "Conservative talk radio show taking over for The Rush Limbaugh Show", "https://en.wikipedia.org/wiki/The_Rush_Limbaugh_Show"]],
                "Right"]
 left_names = [[["Crooked Media", "Created by former Obama staffers", "https://en.wikipedia.org/wiki/Crooked_Media"],
                ["Real Time with Bill Maher",
@@ -35,7 +37,7 @@ left_names = [[["Crooked Media", "Created by former Obama staffers", "https://en
                ["Krystal Kyle & Friends", "Hosts Krystal Ball and Kyle Kulinski are self-described progressives", ""],
                ["Fear & Malding", "Self-described as left-leaning podcast", "https://open.spotify.com/show/5uKAwUEZun3X9NyxnwfS7e (Fear & Malding)"],
                ["Q Clearance: The Hunt for QAnon", "Explores right-wing QAnon theory; will inherently have leftist lean", ""],
-               ["The Majority Report with Sam Seder", "Promotes left-wing politics", "https://en.wikipedia.org/wiki/The_Majority_Report_with_Sam_Seder"]],
+               ["Majority Report with Sam Seder", "Promotes left-wing politics", "https://en.wikipedia.org/wiki/The_Majority_Report_with_Sam_Seder"]],
               "Left"]
 center_names = [[["Breaking Points with Krystal and Saagar", "Hosts Krystal Ball and Saagar Enjeti both populists \
 but the former leans left and the latter leans right. Even though they aren't the center, contains representative from \
