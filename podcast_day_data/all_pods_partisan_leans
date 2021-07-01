@@ -8,6 +8,11 @@
   </thead>
   <tbody>
     <tr>
+      <td>ABC News</td>
+      <td>20/20</td>
+      <td>Left</td>
+    </tr>
+    <tr>
       <td>Axios &amp; Pushkin Industries</td>
       <td>Axios Today</td>
       <td>Center</td>
@@ -59,12 +64,12 @@
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>Pod Save the World</td>
+      <td>Lovett or Leave It</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>Lovett or Leave It</td>
+      <td>Pod Save the World</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -139,12 +144,12 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>Consider This from NPR</td>
+      <td>On Our Watch</td>
       <td>Center</td>
     </tr>
     <tr>
       <td>NPR</td>
-      <td>On Our Watch</td>
+      <td>Consider This from NPR</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -159,12 +164,12 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>Up First</td>
+      <td>No Compromise</td>
       <td>Center</td>
     </tr>
     <tr>
       <td>NPR</td>
-      <td>No Compromise</td>
+      <td>Up First</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -214,7 +219,7 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
-      <td>The Michael Knowles Show</td>
+      <td>Debunked</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -229,7 +234,12 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
-      <td>Debunked</td>
+      <td>The Andrew Klavan Show</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>The Michael Knowles Show</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -238,9 +248,9 @@
       <td>Right</td>
     </tr>
     <tr>
-      <td>The Daily Wire</td>
-      <td>The Andrew Klavan Show</td>
-      <td>Right</td>
+      <td>The Economist</td>
+      <td>The Economist Morning Briefing</td>
+      <td>Left</td>
     </tr>
     <tr>
       <td>The Economist</td>
@@ -248,18 +258,13 @@
       <td>Left</td>
     </tr>
     <tr>
-      <td>The Economist</td>
-      <td>The Economist Morning Briefing</td>
+      <td>The New York Times</td>
+      <td>The Daily</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>The New York Times</td>
       <td>1619</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <td>The New York Times</td>
-      <td>The Daily</td>
       <td>Left</td>
     </tr>
     <tr>
