@@ -139,21 +139,6 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>NPR News Now</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
-      <td>On Our Watch</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
-      <td>Consider This from NPR</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
       <td>The NPR Politics Podcast</td>
       <td>Center</td>
     </tr>
@@ -164,12 +149,27 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>No Compromise</td>
+      <td>Consider This from NPR</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>NPR News Now</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>On Our Watch</td>
       <td>Center</td>
     </tr>
     <tr>
       <td>NPR</td>
       <td>Up First</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>No Compromise</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -194,12 +194,12 @@
     </tr>
     <tr>
       <td>Premiere Networks</td>
-      <td>The Rush Limbaugh Show</td>
+      <td>The Clay Travis and Buck Sexton Show</td>
       <td>Right</td>
     </tr>
     <tr>
       <td>Premiere Networks</td>
-      <td>The Clay Travis and Buck Sexton Show</td>
+      <td>The Rush Limbaugh Show</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -218,8 +218,23 @@
       <td>Left</td>
     </tr>
     <tr>
+      <td>TODAY</td>
+      <td>TODAY</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>Candace</td>
+      <td>Right</td>
+    </tr>
+    <tr>
       <td>The Daily Wire</td>
       <td>Debunked</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>The Andrew Klavan Show</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -234,27 +249,17 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
-      <td>The Andrew Klavan Show</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <td>The Daily Wire</td>
       <td>The Michael Knowles Show</td>
       <td>Right</td>
     </tr>
     <tr>
-      <td>The Daily Wire</td>
-      <td>Candace</td>
-      <td>Right</td>
-    </tr>
-    <tr>
       <td>The Economist</td>
-      <td>The Economist Morning Briefing</td>
+      <td>Economist Radio</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>The Economist</td>
-      <td>Economist Radio</td>
+      <td>The Economist Morning Briefing</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -289,12 +294,12 @@
     </tr>
     <tr>
       <td>The Washington Post</td>
-      <td>Post Reports</td>
+      <td>Please, Go On with James Hohmann</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>The Washington Post</td>
-      <td>Please, Go On with James Hohmann</td>
+      <td>Post Reports</td>
       <td>Left</td>
     </tr>
     <tr>

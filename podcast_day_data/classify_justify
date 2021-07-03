@@ -213,6 +213,12 @@
       <td>Right</td>
     </tr>
     <tr>
+      <td>TODAY</td>
+      <td>AllSides</td>
+      <td><a href="https://www.allsides.com/media-bias/media-bias-ratings?field_featured_bias_rating_value=All&field_news_source_type_tid[1]=1&field_news_source_type_tid[2]=2&field_news_source_type_tid[3]=3&field_news_source_type_tid[4]=4&field_news_bias_nid_1[1]=1&field_news_bias_nid_1[2]=2&field_news_bias_nid_1[3]=3&title=TODAY">Link</a></td>
+      <td>Right</td>
+    </tr>
+    <tr>
       <td>The Daily Wire</td>
       <td>AllSides</td>
       <td><a href="https://www.allsides.com/media-bias/media-bias-ratings?field_featured_bias_rating_value=All&field_news_source_type_tid[1]=1&field_news_source_type_tid[2]=2&field_news_source_type_tid[3]=3&field_news_source_type_tid[4]=4&field_news_bias_nid_1[1]=1&field_news_bias_nid_1[2]=2&field_news_bias_nid_1[3]=3&title=Daily%20Wire">Link</a></td>
