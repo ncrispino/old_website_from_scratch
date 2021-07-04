@@ -12,19 +12,19 @@
   <tbody>
     <tr>
       <th>Left</th>
-      <td>17.117647</td>
+      <td>17.111111</td>
     </tr>
     <tr>
       <th>Center</th>
-      <td>12.882353</td>
+      <td>12.888889</td>
     </tr>
     <tr>
       <th>Right</th>
-      <td>14.235294</td>
+      <td>14.166667</td>
     </tr>
     <tr>
       <th>Neither</th>
-      <td>5.764706</td>
+      <td>5.833333</td>
     </tr>
   </tbody>
 </table>
