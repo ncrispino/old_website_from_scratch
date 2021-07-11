@@ -8,7 +8,7 @@ Using the [ProPublica Congress API](https://projects.propublica.org/api-docs/con
 
 ### Statements
 Congressional statements, mainly in the form of press releases, are ways for congressmembers to communicate their opinions on bills or achievements to their constituents or to the broader public. These statements can get picked up by the media and potentially amplify someone's image. One may expect a presidential candidate in congress to write more press releases, so as to communicate their impact. However, candidates also may choose to focus on other avenues, such as social media or press releases through their presidential campaigns, instead of through congress. In my opinion, an increase of congressional statements doesn't necessarily correspond with an increase in congressional focus, but the opposite may be true. If one is using their congressional platform less, they are necessarily less focused on legislative issues, though they may be more attentive to the US political landscape as a whole.
-![Presidential candidates total statements by month](\..\images\pres-candidates-graphs\statements_seasons_by_cand.png)
+![Presidential candidates total statements by month](\..\images\pres-candidates-graphs\statements_total_by_cand.png)
 
 For almost all the candidates, the total number of congressional statements per month during their presidential campaigns was reasonably similar to during other periods. For a few candidates (Gabbard, Warren, Klobuchar, Delaney) there appeared to be a spike in congressional statements soon after their campaign announcements. For some (Gabbard, Sanders), statements have a generally downward trend. It appears there's nothing conclusive here; much of the monthly statement numbers fit with the rest of the non-campaign data.
 
@@ -28,18 +28,20 @@ Voting is also a crucial duty of congressmembers. Therefore, I will be looking a
 First, missed votes are an important gauge of how focused a congressmember may be on their legislative duties. If they decide to spend a lot of time outside the chamber, it will correspond to missed votes. Here, I expect the presidential candidates to miss more votes during their campaign periods.
 ![Presidential candidates missed votes percent](\..\images\pres-candidates-graphs\missed_votes.png)
 
-Wow... this seems the most consequential statistic yet. Congress 116 was a significant change for all of these presidential candidates in terms of missed votes. However, perhaps it was due to Covid-19, which intersected with the last year of this congressional session. To determine if this is the case, let's look at the average percent of missed votes for different groups in Congress.
-![Percent missed votes summary](\..\images\pres-candidates-graphs\missed_votes_summary.png)
+Wow... this seems the most consequential statistic yet. Congress 116 was a significant change for all of these presidential candidates in terms of missed votes. However, perhaps it was due to Covid-19, which intersected with the last year of this congressional session. To determine if this is the case, let's look at the average percent of missed votes for different groups in Congress)\*\*\*.
+![Percent missed votes summary](\..\images\pres-candidates-graphs\missed_votes_summary.png))
 
-Covid-19 doesn't seem to have had that large of an impact... The average missed votes percentage are similar for each session shown. Based on this graph, I think it's reasonable to conclude that the presidential candidates missed votes in session 116 at a much, much higher rate than regular congressmembers.
+Covid-19 doesn't seem to have had that large of an impact... The average missed votes percentage are similar for each session shown. Based on this graph, I think it's reasonable to conclude that the presidential candidates missed votes in session 116 at a significantly higher rate than regular congressmembers.
 
-Another interesting statistic is the percent of votes for and against one's party. One may expect presidential candidates to vote more with their party during a presidential run as they try to please the voters in their entire party instead of in their specific congressional district or state. However, a candidate may also find success in voting against their party in an attempt to better differentiate themselves from other candidates, especially in a large field like the 2020 democratic primary. Because it's easier to visualize the percent of votes against one's party than votes for one's party (as the percentages are smaller), I will display those.
+Another interesting statistic is the percent of votes for and against one's party. One may expect presidential candidates to vote more with their party during a presidential run as they try to please the voters in their entire party instead of in their specific congressional district or state. However, a candidate may also find success in voting against their party in an attempt to better differentiate themselves from other candidates, especially in a large field like the 2020 democratic primary. Because it's easier to visualize the percentage of votes against one's party than votes for one's party (as the percentages are smaller), I will display those.
 ![Presidential candidates votes against party percent](\..\images\pres-candidates-graphs\against_party_votes.png)
 
-These results seem mixed; some candidates appeared to take the former strategy, siding more/the same amount with other Democrats, while others increased their votes against their party. Let's again look at mean votes across different categories to come to a better conclusion.
+These results seem mixed; in session 116, some candidates appeared to take the former strategy, siding more/the same amount with other Democrats, while others increased their votes against their party. Let's again look at mean vote percentages to come to a better conclusion\*\*\*.
 ![Percent votes against party summary](\..\images\pres-candidates-graphs\against_party_summary.png)
 
 It seems that the presidential candidates were more apt to vote against their party than other Democrats in Congress 115 and 116. A plausible explanation could be that the presidential candidates were the ones who developed the most individualism in the age of Trump. Perhaps the candidates didn't start voting more against their party because they planned to run but instead because they became more independent, believing their party was going in the wrong direction after Trump was elected.
+
+*\*\*\* "Democrats" does not include Sanders*
 
 ### Statistical Analysis
 Look at the statistics and see if they're significant.
