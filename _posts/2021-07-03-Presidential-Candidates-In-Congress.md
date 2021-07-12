@@ -43,9 +43,6 @@ It seems that the presidential candidates were more apt to vote against their pa
 
 *\*\*\* "Democrats" does not include Sanders*
 
-### Statistical Analysis
-Look at the statistics and see if they're significant.
-
 ## Campaign Finance Analysis
 As it's known that you need money to succeed in politics, I'll look at the difference in fundraising for these canidates over time (both for congressional and presidential runs) and compare it with their success as a candidate.
 
@@ -63,4 +60,5 @@ use PEW or GALLUP! research, research, research
 
 also, ask how often in debates do candidates mention their bills? somehow research this?
 
-grammar -- congressmember? two words? capitalized? also, "I" vs. "We"-->
+grammar -- congressmember? two words? capitalized? also, "I" vs. "We"
+change font on summary bar graphs to match?-->
