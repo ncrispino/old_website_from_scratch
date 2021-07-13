@@ -12,7 +12,7 @@ Congressional statements, mainly in the form of press releases, are ways for con
 
 For almost all the candidates, the total number of congressional statements per month during their presidential campaigns was reasonably similar to during other periods. For a few candidates (Gabbard, Warren, Klobuchar, Delaney) there appeared to be a spike in congressional statements soon after their campaign announcements. For some (Gabbard, Sanders), statements have a generally downward trend. It appears there's nothing conclusive here; much of the monthly statement numbers fit with the rest of the non-campaign data.
 
-**ADD LINE OF BEST FIT???**
+<!-- **ADD LINE OF BEST FIT???** -->
 
 
 ### Bills
@@ -29,7 +29,7 @@ First, missed votes are an important gauge of how focused a congressmember may b
 ![Presidential candidates missed votes percent](\..\images\pres-candidates-graphs\missed_votes.png)
 
 Wow... this seems the most consequential statistic yet. Congress 116 was a significant change for all of these presidential candidates in terms of missed votes. However, perhaps it was due to Covid-19, which intersected with the last year of this congressional session. To determine if this is the case, let's look at the average percent of missed votes for different groups in Congress)\*\*\*.
-![Percent missed votes summary](\..\images\pres-candidates-graphs\missed_votes_summary.png))
+![Percent missed votes summary](\..\images\pres-candidates-graphs\missed_votes_summary.png)
 
 Covid-19 doesn't seem to have had that large of an impact... The average missed votes percentage are similar for each session shown. Based on this graph, I think it's reasonable to conclude that the presidential candidates missed votes in session 116 at a significantly higher rate than regular congressmembers.
 
@@ -44,9 +44,26 @@ It seems that the presidential candidates were more apt to vote against their pa
 *\*\*\* "Democrats" does not include Sanders*
 
 ## Campaign Finance Analysis
-As it's known that you need money to succeed in politics, I'll look at the difference in fundraising for these canidates over time (both for congressional and presidential runs) and compare it with their success as a candidate.
+As it's widely known that you need money to succeed in politics, I'll look at the difference in fundraising for these candidates over time (both for congressional and presidential runs) and compare it with their success as a candidate.
+
+### Individual contributions
+First, I'll look at total individual contributions for each candidate's presidential and congressional runs. There are two types of individual contributions: itemized contributions, where donors give over $200, and unitemized contributions, where donors give less. For the former, donors must be reported; for the latter, it's not required. (See [this post](https://blog.actblue.com/2020/01/29/the-small-dollar-donors-guide-to-fec-filings/) for more details). One would expect more contributions in both categories for a presidential run. However, by further comparing presidential and congressional fundraising, we may be able to see how much momentum a candidate generated--both from normal people and the wealthier--or how much they outperformed pre-race expectations. While comparing totals, it's important to note the differences in each congressmember's fundraising base. For example, Sanders was immensely popular in his presidential run, yet relatively doesn't raise that much for his Senate campaigns. The presidential to total congressional ratio tells us how well each member leveraged their relations on the Hill, with the media, and with potential donors to expand their voter base.
+
+<!-- Also, by using the total congressional fundraising across campaign cycles, -->
+
+Itemized:
+![Total itemized contributions for 2020 presidential run and all congressional runs](\..\images\pres-candidates-graphs\fec_one_ind_itemized.png)
+![Total itemized contributions presidential to congressional ratio](\..\images\pres-candidates-graphs\itemized_pres_cong_ratio.png)
+
+Unitemized:
+![Total unitemized contributions for 2020 presidential run and all congressional runs](\..\images\pres-candidates-graphs\fec_one_ind_unitemized.png)
+![Total unitemized contributions presidential to congressional ratio](\..\images\pres-candidates-graphs\unitemized_pres_cong_ratio.png)
+
+Also, we can check the ratio of itemized to unitemized contributions for both presidential and congressional campaigns.
 
 Do higher fundraisers in Congress tend to make presidential runs? For this, we must look across time at many presidential elections. However, for now, we will retain our focus on 2020.
+
+Is there an upward trend in fundraising?
 
 ## Recap
 Perhaps in the future, I could analyze the total number of statements or bills introduced based on important congressional election dates.
