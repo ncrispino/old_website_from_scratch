@@ -30,6 +30,14 @@ img {
   margin: 0 auto;
 }
 
+img.full-img {
+  width: 100%;
+}
+
+img.smaller-img {
+  width: 60%;
+}
+
 
 div.change_img {
   /* text-align: center; */
