@@ -27,6 +27,8 @@ from datetime import date
 url_pod = "https://chartable.com/charts/spotify/united-states-of-america-news-politics"
 options = Options()
 options.add_argument("--headless")
+user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.517 Safari/537.36'
+options.add_argument(f"user-agent={user_agent}")
 driver = webdriver.Chrome("C:/Users/ncris/econ/chromedriver_win32/chromedriver.exe", options=options)
 driver.get(url_pod)
 soup_pod = BeautifulSoup(driver.page_source, "lxml")

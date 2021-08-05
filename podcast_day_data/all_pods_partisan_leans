@@ -29,6 +29,11 @@
     </tr>
     <tr>
       <td>Blaze Podcast Network</td>
+      <td>Relatable with Allie Beth Stuckey</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>Blaze Podcast Network</td>
       <td>Louder with Crowder</td>
       <td>Right</td>
     </tr>
@@ -54,22 +59,22 @@
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>Pod Save America</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <td>Crooked Media</td>
       <td>What A Day</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>Pod Save the World</td>
+      <td>Lovett or Leave It</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>Lovett or Leave It</td>
+      <td>Pod Save America</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <td>Crooked Media</td>
+      <td>Pod Save the World</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -139,27 +144,12 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>NPR News Now</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
-      <td>Up First</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
       <td>Consider This from NPR</td>
       <td>Center</td>
     </tr>
     <tr>
       <td>NPR</td>
-      <td>On Our Watch</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
-      <td>The NPR Politics Podcast</td>
+      <td>NPR News Now</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -170,6 +160,21 @@
     <tr>
       <td>NPR</td>
       <td>Code Switch</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>Up First</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>On Our Watch</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>The NPR Politics Podcast</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -194,12 +199,12 @@
     </tr>
     <tr>
       <td>Premiere Networks</td>
-      <td>The Rush Limbaugh Show</td>
+      <td>The Clay Travis and Buck Sexton Show</td>
       <td>Right</td>
     </tr>
     <tr>
       <td>Premiere Networks</td>
-      <td>The Clay Travis and Buck Sexton Show</td>
+      <td>The Rush Limbaugh Show</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -224,22 +229,7 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
-      <td>The Ben Shapiro Show</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <td>The Daily Wire</td>
       <td>Debunked</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <td>The Daily Wire</td>
-      <td>The Matt Walsh Show</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <td>The Daily Wire</td>
-      <td>The Michael Knowles Show</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -250,6 +240,21 @@
     <tr>
       <td>The Daily Wire</td>
       <td>The Andrew Klavan Show</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>The Michael Knowles Show</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>The Ben Shapiro Show</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>The Matt Walsh Show</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -294,12 +299,12 @@
     </tr>
     <tr>
       <td>The Washington Post</td>
-      <td>Please, Go On with James Hohmann</td>
+      <td>Post Reports</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>The Washington Post</td>
-      <td>Post Reports</td>
+      <td>Please, Go On with James Hohmann</td>
       <td>Left</td>
     </tr>
     <tr>
