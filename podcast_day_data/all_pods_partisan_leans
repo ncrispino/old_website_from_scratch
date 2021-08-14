@@ -9,6 +9,11 @@
   <tbody>
     <tr>
       <td>ABC News</td>
+      <td>Start Here</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <td>ABC News</td>
       <td>20/20</td>
       <td>Left</td>
     </tr>
@@ -24,17 +29,17 @@
     </tr>
     <tr>
       <td>Blaze Podcast Network</td>
-      <td>The Glenn Beck Program</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <td>Blaze Podcast Network</td>
       <td>Relatable with Allie Beth Stuckey</td>
       <td>Right</td>
     </tr>
     <tr>
       <td>Blaze Podcast Network</td>
       <td>Louder with Crowder</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>Blaze Podcast Network</td>
+      <td>The Glenn Beck Program</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -64,17 +69,17 @@
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>Lovett or Leave It</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <td>Crooked Media</td>
       <td>Pod Save America</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>Crooked Media</td>
       <td>Pod Save the World</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <td>Crooked Media</td>
+      <td>Lovett or Leave It</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -144,11 +149,6 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>Consider This from NPR</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
       <td>NPR News Now</td>
       <td>Center</td>
     </tr>
@@ -159,7 +159,17 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>Code Switch</td>
+      <td>On Our Watch</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>Consider This from NPR</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>The NPR Politics Podcast</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -169,12 +179,7 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>On Our Watch</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
-      <td>The NPR Politics Podcast</td>
+      <td>Code Switch</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -239,17 +244,17 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
-      <td>The Andrew Klavan Show</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <td>The Daily Wire</td>
       <td>The Michael Knowles Show</td>
       <td>Right</td>
     </tr>
     <tr>
       <td>The Daily Wire</td>
       <td>The Ben Shapiro Show</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>The Andrew Klavan Show</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -269,27 +274,27 @@
     </tr>
     <tr>
       <td>The New York Times</td>
-      <td>1619</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <td>The New York Times</td>
       <td>The Daily</td>
       <td>Left</td>
     </tr>
     <tr>
-      <td>The Realignment</td>
-      <td>The Realignment</td>
-      <td>Right</td>
+      <td>The New York Times</td>
+      <td>1619</td>
+      <td>Left</td>
     </tr>
     <tr>
-      <td>The Wall Street Journal</td>
-      <td>WSJ What’s News</td>
+      <td>The Realignment</td>
+      <td>The Realignment</td>
       <td>Right</td>
     </tr>
     <tr>
       <td>The Wall Street Journal</td>
       <td>WSJ Your Money Briefing</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Wall Street Journal</td>
+      <td>WSJ What’s News</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -299,12 +304,12 @@
     </tr>
     <tr>
       <td>The Washington Post</td>
-      <td>Post Reports</td>
+      <td>Please, Go On with James Hohmann</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>The Washington Post</td>
-      <td>Please, Go On with James Hohmann</td>
+      <td>Post Reports</td>
       <td>Left</td>
     </tr>
     <tr>
