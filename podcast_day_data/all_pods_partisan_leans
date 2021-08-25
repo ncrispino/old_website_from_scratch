@@ -9,12 +9,12 @@
   <tbody>
     <tr>
       <td>ABC News</td>
-      <td>Start Here</td>
+      <td>20/20</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>ABC News</td>
-      <td>20/20</td>
+      <td>Start Here</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -25,6 +25,11 @@
     <tr>
       <td>BBC World Service</td>
       <td>Global News Podcast</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>BBC World Service</td>
+      <td>Newshour</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -64,7 +69,12 @@
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>What A Day</td>
+      <td>Pod Save the World</td>
+      <td>Left</td>
+    </tr>
+    <tr>
+      <td>Crooked Media</td>
+      <td>Lovett or Leave It</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -74,12 +84,7 @@
     </tr>
     <tr>
       <td>Crooked Media</td>
-      <td>Pod Save the World</td>
-      <td>Left</td>
-    </tr>
-    <tr>
-      <td>Crooked Media</td>
-      <td>Lovett or Leave It</td>
+      <td>What A Day</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -96,6 +101,11 @@
       <td>Devil May Care Media</td>
       <td>The Megyn Kelly Show</td>
       <td>Center</td>
+    </tr>
+    <tr>
+      <td>FOX News Radio</td>
+      <td>Fox News Radio Newscast</td>
+      <td>Right</td>
     </tr>
     <tr>
       <td>FOX News Radio</td>
@@ -149,27 +159,7 @@
     </tr>
     <tr>
       <td>NPR</td>
-      <td>NPR News Now</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
-      <td>No Compromise</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
       <td>On Our Watch</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
-      <td>Consider This from NPR</td>
-      <td>Center</td>
-    </tr>
-    <tr>
-      <td>NPR</td>
-      <td>The NPR Politics Podcast</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -179,7 +169,27 @@
     </tr>
     <tr>
       <td>NPR</td>
+      <td>No Compromise</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>The NPR Politics Podcast</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
       <td>Code Switch</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>Consider This from NPR</td>
+      <td>Center</td>
+    </tr>
+    <tr>
+      <td>NPR</td>
+      <td>NPR News Now</td>
       <td>Center</td>
     </tr>
     <tr>
@@ -239,17 +249,12 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
-      <td>Candace</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <td>The Daily Wire</td>
-      <td>The Michael Knowles Show</td>
-      <td>Right</td>
-    </tr>
-    <tr>
-      <td>The Daily Wire</td>
       <td>The Ben Shapiro Show</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>The Matt Walsh Show</td>
       <td>Right</td>
     </tr>
     <tr>
@@ -259,17 +264,22 @@
     </tr>
     <tr>
       <td>The Daily Wire</td>
-      <td>The Matt Walsh Show</td>
+      <td>Candace</td>
+      <td>Right</td>
+    </tr>
+    <tr>
+      <td>The Daily Wire</td>
+      <td>The Michael Knowles Show</td>
       <td>Right</td>
     </tr>
     <tr>
       <td>The Economist</td>
-      <td>Economist Radio</td>
+      <td>The Economist Morning Briefing</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>The Economist</td>
-      <td>The Economist Morning Briefing</td>
+      <td>Economist Radio</td>
       <td>Left</td>
     </tr>
     <tr>
@@ -304,12 +314,12 @@
     </tr>
     <tr>
       <td>The Washington Post</td>
-      <td>Please, Go On with James Hohmann</td>
+      <td>Post Reports</td>
       <td>Left</td>
     </tr>
     <tr>
       <td>The Washington Post</td>
-      <td>Post Reports</td>
+      <td>Please, Go On with James Hohmann</td>
       <td>Left</td>
     </tr>
     <tr>

@@ -88,7 +88,7 @@ def find_biases_dict(source_list, partisan_leans):
         # if source not already in dict
         if partisan_leans.get(source_full) == None:
             # wait before next round
-            time.sleep(0.1)
+            time.sleep(0.2)
             # find input and type source
             # Waits 10 seconds until element with id "edit-title" is clickable -- if it's not or time passes, throws error
             input_element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.ID, "edit-title")))
