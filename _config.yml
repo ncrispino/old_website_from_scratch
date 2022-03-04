@@ -1,6 +1,12 @@
 plugins:
   # to see sitemap, use /sitemap.xml
   - jekyll-sitemap
+  - jekyll-include-cache
+
+# exclude: [_creators, _sass, _data, _includes, _layouts, assets, scripts, _posts]
+
+# theme: minimal-mistakes-jekyll
+# remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 collections:
   creators:

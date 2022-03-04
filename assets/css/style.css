@@ -1,19 +1,27 @@
 html {
-  background-color: #f7fafa;/*#bfbfbf;*/
+  /* background-color: #f7fafa;/*#bfbfbf;*/ */
   font-size: 17px;
   /* font-family: 'Merriweather', serif; */
-  font-family: 'PT Serif', serif;
+  /* font-family: 'PT Serif', serif; */
+  font-family: 'Epilogue', sans-serif;
 }
 
 div.notebook {
-  background-color: #a1c4c4;
+  /* background-color: #a1c4c4; */
+  /* background-color: #08AEEA;
+  background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%); */
+
 }
 
 body {
+  font-family: 'Epilogue', sans-serif;
   width: 70%;
   margin: 0 auto; /* Put text in middle of page */
   padding: 0 50px 10px 50px;
-  background-color: #f7fafa /*#d9fffd;  Select off-white color */
+  /* background-color: #f7fafa /*#d9fffd;  Select off-white color */ */
+  background-color: #08AEEA;
+  background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+  line-height: 2;
 }
 
 #main_list li {
@@ -73,6 +81,7 @@ footer {
   padding-top: 50px;
   font-size: 12px;
   margin-left: 10px;
+  line-height: normal;
 }
 
 /* Make preview list in blog.html and project-page.html shifted by changing margins */
@@ -103,6 +112,7 @@ div.shifted {
 ul.shifted {
   list-style-type: none;
   padding-left: 0;
+
 }
 
 ul.shifted time {
@@ -120,7 +130,9 @@ ul.shifted time {
 
 nav.nav-bar {
   border-bottom: 5px double black;
-  background-color: #f7fafa; /*#b6d6d5;*/
+  /* background-color: #f7fafa; /*#b6d6d5;*/ */
+  background-color: #08AEEA;
+  /* background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%); */
   padding-top: 6.5px;
   margin: auto -50px; /* extend nav-bar to end of page */
   margin-bottom: 40px;
@@ -189,4 +201,4 @@ a:hover {
 .nav-bar li a:hover {
   font-weight: bolder;
   /* background-color: black; */
-}
+} */
