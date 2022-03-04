@@ -3,16 +3,16 @@
   <!-- <span id="site-name">ncrispino</span> -->
   <!-- Iterates over navigation items in navigation data file;
   each has a name and corresponding link -->
-  <ul>
-    <span class="nav-static-elements">
+  <ul id="nav-bar-grid">
+    <!-- <span class="nav-static-elements"> -->
       <li>
         <img id="site-logo" src={{ "../images/poss_logo_1.png" | relative_url }}>
       </li>
       <li>
         <a href="/" id="site-name">ncrispino</a>
       </li>
-    </span>
-    <span class="nav-elements">
+    <!-- </span> -->
+    <!-- <span class="nav-elements"> -->
       {% for item in site.data.navigation %}
       <li>
         <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>
@@ -20,11 +20,11 @@
         </a>
       </li>
       {% endfor %}
-    </span>
-    <li class="search-bar">
+    <!-- </span> -->
+    <!-- <li class="search-bar"> -->
       <!-- Search -->
       <!-- <button>Search</button> -->
       <!-- <input class="search-bar" type="search" placeholder="Search" name="q"> -->
-    </li>
+    <!-- </li> -->
   </ul>
 </nav>
